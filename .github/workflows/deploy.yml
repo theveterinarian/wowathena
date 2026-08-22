@@ -27,10 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Requires Pages to be enabled once by hand:
+      # Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
+      # The workflow's GITHUB_TOKEN is not permitted to enable it automatically.
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
