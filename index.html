@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Athena DUI Academy &amp; Family Enrichment — Georgia State-approved DUI/RRP courses, anger management, and family enrichment in Athens, GA. Become a Warrior of Wisdom.">
+<meta name="theme-color" content="#5b1d8e">
+<title>Athena DUI Academy &amp; Family Enrichment — Warrior of Wisdom (W.O.W.)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>⚖️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:#5b1d8e; --purple-dk:#3f1166; --purple-lt:#7c3aed; --purple-soft:#f3e8ff;
+  --gold:#f4c842; --gold-dk:#d4a017;
+  --verdigris:#4a7c59; --verdigris-dk:#2d5a3d; --verdigris-lt:#7ba98a;
+  --ink:#1a0e2e; --muted:#5b5b7a; --bg:#fdfcf8; --cream:#fdf6e3;
+  --line:#ece4f4; --card:#ffffff;
+  --grad: linear-gradient(135deg, var(--purple) 0%, var(--purple-dk) 100%);
+  --grad-bright: linear-gradient(135deg, var(--gold) 0%, var(--verdigris-lt) 100%);
+  --shadow:0 18px 40px -16px rgba(91,29,142,.25);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.022em; margin: 0 0 .5em; line-height: 1.1; color: var(--ink); }
+h1 { font-size: clamp(2.5rem, 5.5vw, 4.3rem); }
+h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; color: var(--muted); }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.script { font-family: 'Dancing Script', cursive; font-weight: 700; color: var(--purple); }
+em { font-style: normal; background: linear-gradient(180deg, transparent 60%, var(--gold) 60%); padding: 0 4px; }
+
+.wrap { width: min(94%, 1200px); margin: 0 auto; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: 1rem 1.65rem; border-radius: 999px; font: 700 .95rem/1 'Inter', sans-serif; border: 2px solid transparent; cursor: pointer; transition: all .2s; }
+.btn-primary { background: var(--grad); color: #fff; box-shadow: 0 12px 28px -10px rgba(91,29,142,.6); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 34px -10px rgba(91,29,142,.7); }
+.btn-gold { background: var(--gold); color: var(--purple-dk); box-shadow: 0 12px 28px -10px rgba(244,200,66,.6); }
+.btn-gold:hover { background: var(--gold-dk); color: var(--purple-dk); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+.btn-outline:hover { background: #fff; color: var(--purple); border-color: #fff; }
+
+/* Top stripe bar — like the wowathena.com top */
+.topbar { background: var(--purple); color: #fff; padding: .65rem 0; font-size: .88rem; font-weight: 600; text-align: center; letter-spacing: .03em; }
+.topbar strong { color: var(--gold); }
+.topbar .sep { margin: 0 .8rem; opacity: .5; }
+
+/* Nav */
+.nav { background: rgba(255,255,255,.96); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 30; border-bottom: 2px solid var(--line); box-shadow: 0 2px 16px rgba(91,29,142,.05); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: .85rem 0; }
+.brand { display: flex; align-items: center; }
+.brand-logo { height: 60px; width: auto; display: block; }
+
+.nav-links { display: flex; gap: 1.6rem; }
+.nav-links a { font-size: .92rem; font-weight: 600; color: var(--ink); transition: color .15s; }
+.nav-links a:hover { color: var(--purple); }
+.nav-phone { display: flex; align-items: center; gap: .85rem; }
+.nav-phone .num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--purple); font-size: 1.08rem; }
+
+/* Hero */
+.hero {
+  position: relative; padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 7vw, 6rem); overflow: hidden;
+  background: linear-gradient(135deg, #f9f3ff 0%, #fdfcf8 60%, #e8f3eb 100%);
+}
+.hero::before {
+  content: ""; position: absolute; top: 0; right: 0; width: 60%; height: 100%;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(244,200,66,.15), transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(74,124,89,.12), transparent 50%);
+  pointer-events: none;
+}
+.hero::after {
+  content: ""; position: absolute; bottom: -20px; left: -10%; right: -10%; height: 80px;
+  background: var(--verdigris); transform: rotate(-2deg);
+  z-index: 0;
+}
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; align-items: center; z-index: 1; }
+.hero .eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .9rem;
+  background: var(--purple-soft); color: var(--purple); border: 1px solid rgba(91,29,142,.18);
+  border-radius: 999px; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero h1 { color: var(--ink); max-width: 700px; }
+.hero h1 .wow { color: var(--purple); display: block; }
+.hero h1 .wow-tag { font-family: 'Space Grotesk', sans-serif; font-size: 0.6em; color: var(--gold-dk); font-weight: 600; letter-spacing: 0.04em; }
+.hero p.lede { font-size: 1.15rem; max-width: 520px; margin: 1.5rem 0 2rem; color: var(--ink); line-height: 1.6; }
+.hero p.lede strong { color: var(--purple); }
+.hero-ctas { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: .92rem; color: var(--muted); }
+.hero-meta span { display: flex; align-items: center; gap: .4rem; font-weight: 600; }
+.hero-meta span::before { content: "✓"; color: var(--verdigris); font-weight: 800; }
+
+.hero-image {
+  position: relative; aspect-ratio: 3/4; display: grid; place-items: center;
+}
+.hero-image .justice-frame {
+  position: relative; width: 100%; height: 100%;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(244,200,66,.4), transparent 65%);
+}
+.justice-img {
+  width: 100%; height: 100%;
+  background:
+    url('img/justice.png') center bottom/contain no-repeat,
+    url('img/justice.svg') center bottom/contain no-repeat;
+  filter: drop-shadow(0 24px 40px rgba(74,124,89,.35));
+}
+.hero-badge {
+  position: absolute; bottom: 1rem; left: 0;
+  background: var(--gold); color: var(--purple-dk);
+  padding: 1rem 1.25rem; border-radius: 14px;
+  box-shadow: 0 14px 32px -10px rgba(91,29,142,.4);
+  display: flex; align-items: center; gap: .75rem;
+  z-index: 2;
+}
+.hero-badge .label { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; opacity: .7; }
+.hero-badge .text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; line-height: 1.15; }
+
+/* Slogan strip */
+.slogan-strip {
+  background: var(--verdigris); color: #fff;
+  padding: 1.5rem 0; position: relative; z-index: 2;
+}
+.slogan-strip .wrap { text-align: center; }
+.slogan-strip p {
+  margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.4rem); letter-spacing: .04em;
+  color: #fff;
+}
+.slogan-strip p::before, .slogan-strip p::after { content: "❖"; color: var(--gold); margin: 0 1rem; opacity: .9; }
+
+/* Trust strip */
+.trust { background: var(--cream); padding: 2rem 0; border-bottom: 3px solid var(--gold); }
+.trust .wrap { display: flex; justify-content: space-around; gap: 1rem; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: .65rem; color: var(--ink); font-weight: 600; font-size: .95rem; }
+.trust-item .ico {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--purple); color: var(--gold);
+  display: grid; place-items: center; font-size: 1rem;
+}
+
+/* Section */
+.section { padding: clamp(4rem, 7vw, 6rem) 0; }
+.head { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
+.head .eyebrow { display: inline-block; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--purple); font-weight: 800; margin-bottom: 1rem; padding: .35rem .9rem; background: var(--purple-soft); border-radius: 999px; }
+.head h2 { margin-bottom: .75rem; }
+.head h2 em { background: linear-gradient(180deg, transparent 62%, var(--gold) 62%); padding: 0 6px; }
+.head p { font-size: 1.05rem; }
+
+/* Mission */
+.mission { background: var(--bg); position: relative; }
+.mission .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; }
+.mission-text h2 { margin-bottom: 1.25rem; }
+.mission-text p { font-size: 1.05rem; line-height: 1.7; color: var(--ink); }
+.mission-text p.warrior {
+  font-family: 'Dancing Script', cursive; font-weight: 700;
+  font-size: 1.6rem; color: var(--purple); margin: 1.5rem 0;
+}
+.mission-visual {
+  aspect-ratio: 1; border-radius: 24px; overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(91,29,142,.85), rgba(74,124,89,.6)),
+    url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=900&q=80&auto=format') center/cover;
+  position: relative;
+}
+.mission-visual::after {
+  content: "⚖️"; position: absolute; bottom: 1.5rem; right: 1.5rem;
+  font-size: 4rem; opacity: .9; filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
+}
+
+/* Courses */
+.courses { background: var(--cream); }
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.course {
+  background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.75rem;
+  position: relative; transition: all .25s; overflow: hidden;
+}
+.course::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+}
+.course:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--purple); }
+.course:hover::before { transform: scaleX(1); }
+.course-icon {
+  width: 56px; height: 56px; border-radius: 14px; background: var(--purple-soft); color: var(--purple);
+  display: grid; place-items: center; font-size: 1.8rem; margin-bottom: 1.25rem;
+}
+.course h3 { margin: 0 0 .35rem; color: var(--ink); }
+.course .duration { font-size: .82rem; color: var(--verdigris-dk); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .85rem; }
+.course p { font-size: .92rem; margin: 0 0 1.25rem; }
+.course .meta { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line); }
+.course .price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--purple); font-size: 1.1rem; }
+.course .price small { color: var(--muted); font-weight: 500; font-size: .82rem; font-family: 'Inter', sans-serif; }
+.course .enroll { color: var(--purple); font-weight: 700; font-size: .9rem; display: inline-flex; align-items: center; gap: .25rem; }
+
+/* Why us */
+.why { background: linear-gradient(135deg, var(--purple-dk) 0%, var(--purple) 100%); color: #fff; position: relative; overflow: hidden; }
+.why::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 90% 10%, rgba(244,200,66,.15), transparent 40%), radial-gradient(circle at 10% 90%, rgba(74,124,89,.18), transparent 40%); }
+.why .head h2 { color: #fff; }
+.why .head .eyebrow { background: rgba(244,200,66,.15); color: var(--gold); }
+.why .head p { color: rgba(255,255,255,.85); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; position: relative; }
+.why-card {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px; padding: 1.75rem; backdrop-filter: blur(6px);
+}
+.why-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--gold); color: var(--purple-dk); display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 1rem; }
+.why-card h3 { color: #fff; margin-bottom: .35rem; }
+.why-card p { color: rgba(255,255,255,.8); font-size: .94rem; margin: 0; }
+
+/* How it works */
+.how { background: var(--bg); }
+.how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.step { text-align: center; padding: 2rem 1.5rem; background: var(--cream); border-radius: 18px; position: relative; border: 2px solid transparent; transition: all .25s; }
+.step:hover { border-color: var(--gold); transform: translateY(-4px); }
+.step-num {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--grad);
+  color: var(--gold); display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;
+  box-shadow: 0 8px 22px -6px rgba(91,29,142,.5);
+}
+.step h3 { margin: 0 0 .5rem; }
+.step p { font-size: .92rem; margin: 0; }
+
+/* Testimonials */
+.testimonials { background: var(--cream); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.testi {
+  background: #fff; padding: 2rem; border-radius: 18px;
+  border-left: 5px solid var(--gold); box-shadow: 0 8px 24px -12px rgba(0,0,0,.06);
+}
+.testi .stars { color: var(--gold-dk); font-size: 1.05rem; letter-spacing: .12em; margin-bottom: 1rem; }
+.testi p { font-size: 1rem; color: var(--ink); margin: 0 0 1.25rem; line-height: 1.55; }
+.testi .author { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--purple); font-size: .92rem; margin: 0; }
+.testi .role { color: var(--muted); font-size: .85rem; margin: 0; }
+
+/* FAQ */
+.faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: .25rem 1.5rem; transition: all .2s; }
+.faq-item[open] { border-color: var(--purple); box-shadow: var(--shadow); }
+.faq-item summary {
+  cursor: pointer; padding: 1.25rem 0; font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.08rem; color: var(--ink);
+  list-style: none; display: flex; justify-content: space-between; align-items: center;
+}
+.faq-item summary::after { content: "+"; color: var(--purple); font-size: 1.6rem; font-weight: 400; line-height: 1; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item p { padding-bottom: 1.25rem; margin: 0; color: var(--muted); }
+
+/* Final CTA */
+.cta-final {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dk) 100%);
+  padding: clamp(4rem, 8vw, 6rem) 0; color: #fff; text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-final::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(244,200,66,.2), transparent 40%),
+    radial-gradient(circle at 85% 50%, rgba(74,124,89,.2), transparent 40%);
+}
+.cta-final .wrap { position: relative; }
+.cta-final .ey { display:inline-block; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:1rem; }
+.cta-final h2 { color: #fff; }
+.cta-final h2 em { background: linear-gradient(180deg, transparent 62%, var(--gold) 62%); color: #fff; padding: 0 6px; }
+.cta-final p { color: rgba(255,255,255,.9); font-size: 1.15rem; max-width: 540px; margin: 1.5rem auto 2.5rem; }
+.cta-final .phone-big { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; color: var(--gold); display: block; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+.cta-final-info { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,.15); }
+.cta-final-info > div { text-align: center; }
+.cta-final-info .label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; font-weight: 700; }
+.cta-final-info .val { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: #fff; font-weight: 600; }
+
+/* Footer */
+.foot { background: var(--ink); color: rgba(255,255,255,.65); padding: 3rem 0 1.5rem; font-size: .9rem; }
+.foot .wrap { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+.foot .brand-foot { color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.15rem; }
+.foot .brand-foot small { display: block; font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 1.1rem; font-weight: 700; margin-top: .25rem; }
+.foot h4 { color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 .85rem; font-weight: 700; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+.foot a { color: rgba(255,255,255,.65); transition: color .15s; }
+.foot a:hover { color: var(--gold); }
+.foot p { color: rgba(255,255,255,.55); margin: .5rem 0 0; }
+.foot-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.25rem; text-align: center; font-size: .82rem; color: rgba(255,255,255,.45); }
+
+/* Preview badge */
+.preview-pill {
+  position: fixed; bottom: 20px; right: 20px; z-index: 60;
+  background: rgba(255,255,255,.95); backdrop-filter: blur(8px);
+  padding: .6rem 1rem; border-radius: 999px; font-size: .8rem;
+  color: var(--ink); border: 1px solid var(--line); box-shadow: 0 8px 24px -8px rgba(0,0,0,.18);
+  display: flex; align-items: center; gap: .5rem; font-weight: 500;
+}
+.preview-pill strong { color: var(--purple); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .mission .wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .course-grid, .why-grid, .testi-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr 1fr; }
+  .foot .wrap { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 540px) {
+  .how-grid { grid-template-columns: 1fr; }
+  .foot .wrap { grid-template-columns: 1fr; }
+  .cta-final-info { gap: 1.5rem; }
+  .brand-logo { height: 48px; }
+  .topbar { font-size: .78rem; }
+  .topbar .sep { display: block; margin: 0; height: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  Class Now, Pay Later with <strong>Stripe</strong>
+  <span class="sep">|</span>
+  Call <strong>706.215.9661</strong> for more info
+</div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#" class="brand" aria-label="Athena DUI Academy &amp; Family Enrichment">
+      <img src="img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" class="brand-logo" onerror="this.onerror=null;this.src='img/logo.svg'">
+    </a>
+    <div class="nav-links">
+      <a href="#courses">Courses</a>
+      <a href="#mission">Mission</a>
+      <a href="#why">Why Athena</a>
+      <a href="#how">How It Works</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-phone">
+      <a href="tel:7062159661" class="num">706.215.9661</a>
+      <a href="#enroll" class="btn btn-primary">Enroll Today</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">⚖️ Georgia State-Approved · DUI / RRP Provider</span>
+      <h1>
+        We Help You Become a <span class="wow">Warrior of Wisdom</span>
+        <span class="wow-tag">(W.O.W.)</span>
+      </h1>
+      <p class="lede"><strong>Georgia State-approved DUI/RRP Program</strong> · 20-hour intervention course · classes for most schedules · virtual &amp; in-person options available.</p>
+      <div class="hero-ctas">
+        <a href="#courses" class="btn btn-gold">Find Your Class →</a>
+        <a href="#how" class="btn btn-primary">How it works</a>
+      </div>
+      <div class="hero-meta">
+        <span>Same-day enrollment</span>
+        <span>Pay Later via Stripe</span>
+        <span>Virtual &amp; in-person</span>
+        <span>Mon–Fri · 10am–6pm</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="justice-frame">
+        <div class="justice-img" role="img" aria-label="Lady Justice — verdigris bronze statue holding the scales"></div>
+      </div>
+      <div class="hero-badge">
+        <div>
+          <div class="label">Athens, GA</div>
+          <div class="text">Serving Northeast<br>Georgia Since 2018</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slogan-strip">
+  <div class="wrap">
+    <p>"IN UNITY THERE IS STRENGTH, IN STRENGTH THERE IS POWER"</p>
+  </div>
+</div>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-item"><span class="ico">⚖️</span>GA State Approved</div>
+    <div class="trust-item"><span class="ico">📜</span>Court Accepted</div>
+    <div class="trust-item"><span class="ico">💻</span>Virtual &amp; In-Person</div>
+    <div class="trust-item"><span class="ico">💳</span>Pay Later · Stripe</div>
+    <div class="trust-item"><span class="ico">⭐</span>4.9 · 1,200+ Reviews</div>
+  </div>
+</section>
+
+<section class="section mission" id="mission">
+  <div class="wrap">
+    <div class="mission-visual"></div>
+    <div class="mission-text">
+      <span class="eyebrow" style="display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple);font-weight:800;margin-bottom:1rem;padding:.35rem .9rem;background:var(--purple-soft);border-radius:999px;">Our Mission</span>
+      <h2>Where new beginnings <em>bloom.</em></h2>
+      <p>Athena Academy &amp; Family Enrichment is a place where new beginnings bloom. With a passion for empowering through education, we specialize in court-mandated and personal enrichment programs — delivered with dignity, structure, and real results.</p>
+      <p class="warrior">"We Help You Become a Warrior of Wisdom."</p>
+      <p>Whether you're completing a DUI Risk Reduction course, walking through anger management, or growing through family enrichment — Athena meets you where you are, and walks with you to where you're going.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section courses" id="courses">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Our Programs</span>
+      <h2>Court-mandated <em>courses we offer.</em></h2>
+      <p>Every program is Georgia State-approved, court-recognized, and built around dignified instruction. Pick the one your court ordered — enroll same day.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course">
+        <div class="course-icon">🚗</div>
+        <h3>DUI / RRP Program</h3>
+        <div class="duration">Level I · 20-hour</div>
+        <p>Georgia's state-approved DUI Risk Reduction Program (RRP). Required for license reinstatement after most first DUI offenses.</p>
+        <div class="meta"><span class="price">$360<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+      </div>
+      <div class="course">
+        <div class="course-icon">📋</div>
+        <h3>DUI Education</h3>
+        <div class="duration">Level II · 12 weeks</div>
+        <p>Extended program for second or third offenses. Includes individual assessment and aftercare planning.</p>
+        <div class="meta"><span class="price">$675<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+      </div>
+      <div class="course">
+        <div class="course-icon">🛡️</div>
+        <h3>Family Violence Intervention</h3>
+        <div class="duration">FVIP · 24 weeks</div>
+        <p>State-certified Family Violence Intervention Program (FVIP). Group setting, certified facilitators.</p>
+        <div class="meta"><span class="price">$580<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+      </div>
+      <div class="course">
+        <div class="course-icon">🧘</div>
+        <h3>Anger Management</h3>
+        <div class="duration">8-week program</div>
+        <p>Court-approved cognitive behavioral curriculum. Virtual or in-person, evenings available.</p>
+        <div class="meta"><span class="price">$285<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+      </div>
+      <div class="course">
+        <div class="course-icon">👨‍👩‍👧</div>
+        <h3>Parenting Education</h3>
+        <div class="duration">4-week class</div>
+        <p>For divorce, custody, or DFCS-mandated cases. Trauma-informed, judgment-free.</p>
+        <div class="meta"><span class="price">$150<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+      </div>
+      <div class="course">
+        <div class="course-icon">🌳</div>
+        <h3>Family Enrichment</h3>
+        <div class="duration">Custom workshops</div>
+        <p>Non-court workshops for couples, co-parents, and families seeking growth and reconnection.</p>
+        <div class="meta"><span class="price">From $75<small>/session</small></span><a href="#enroll" class="enroll">Learn more →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section why" id="why">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Why Athena</span>
+      <h2>Compassionate <em style="color:#fff;">over judgmental.</em></h2>
+      <p>You're not your worst day. We treat every student with the respect that helps you actually grow — and we get you compliant fast.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Same-day enrollment</h3>
+        <p>Register online and start today. Most students complete the first hour the same evening.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📨</div>
+        <h3>Certificate to your court</h3>
+        <p>We submit completion certificates directly to your probation officer or court clerk — at no extra cost.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💳</div>
+        <h3>Class Now, Pay Later</h3>
+        <p>Split payments through Stripe into 2 or 4 interest-free installments. No credit checks, no judgment.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💻</div>
+        <h3>Virtual or in-person</h3>
+        <p>Choose what works for your schedule — live virtual classes weekly, in-person at our Athens office.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏛️</div>
+        <h3>Georgia State approved</h3>
+        <p>Our DUI/RRP curriculum is approved by the GA DDS and accepted by all 159 Georgia counties.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">❤️</div>
+        <h3>Real human support</h3>
+        <p>Reach a real person Monday through Friday. We answer questions about your specific court order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how" id="how">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">How It Works</span>
+      <h2>From court order to <em>cleared.</em></h2>
+      <p>Four steps. Most students go from enrolled to certified in days, not weeks.</p>
+    </div>
+    <div class="how-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Find your class</h3>
+        <p>Check your court order or call us — we'll tell you exactly which program to take.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Enroll &amp; pay</h3>
+        <p>Register online in 5 minutes. Pay in full or split into Stripe installments.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Complete</h3>
+        <p>Work through the program at your pace — virtual anytime, or in-person on a schedule.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Cleared</h3>
+        <p>We send your certificate to the court. You're done — congratulations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Real Students</span>
+      <h2>Words from students who <em>made it through.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"I was dreading my DUI class — but Athena made it feel like learning, not punishment. The instructors actually cared. I finished a week early."</p>
+        <p class="author">Marcus T.</p>
+        <p class="role">DUI / RRP · Athens</p>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"They walked me through everything when I had no idea what my court order meant. Submitted my certificate the day I finished. Lifesavers."</p>
+        <p class="author">Elena R.</p>
+        <p class="role">Anger Management · Athens</p>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"Stripe pay-later, virtual evenings — everything worked around my job. I'd absolutely recommend Athena to anyone going through this."</p>
+        <p class="author">Diego V.</p>
+        <p class="role">DUI Level II · Watkinsville</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Honest answers to <em>common questions.</em></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Will the court accept my certificate?</summary>
+        <p>Yes. Athena is a Georgia State-approved DUI/RRP provider, and our certificates are accepted by all 159 counties in Georgia and by the Department of Driver Services for license reinstatement. If you're unsure about your specific court, call us at 706.215.9661 and we'll verify before you pay.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast can I complete the 20-hour DUI/RRP course?</summary>
+        <p>Most students complete the full 20-hour intervention course in 3–7 days at their own pace through our virtual option. In-person classes follow a set schedule — view available dates on the enrollment page or call us.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I complete classes 100% virtually?</summary>
+        <p>Yes for most programs — DUI/RRP, anger management, parenting, and family enrichment can be completed entirely virtually. FVIP requires some in-person sessions per Georgia law. You'll need a webcam for identity verification.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How does Class Now, Pay Later work?</summary>
+        <p>We partner with Stripe to offer interest-free payment plans — split your tuition into 2 or 4 installments. No credit check required. You start the course as soon as your first payment clears.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you send my certificate to the court?</summary>
+        <p>Yes — at no extra cost. As soon as you complete your program, we email and mail your certificate directly to your probation officer, court clerk, or attorney. You also receive your own copy.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What are your office hours?</summary>
+        <p>Our office at 110 Athens West Parkway, Ste.C is open Monday through Friday, 10am–6pm. Virtual classes run evenings and weekends as well. Call 706.215.9661 or email registration@wowathena.com anytime.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are your instructors qualified?</summary>
+        <p>Every instructor is state-certified for the courses they teach. Our FVIP facilitators are licensed counselors. Our DUI Risk Reduction instructors hold GA DDS certification. Meet our team on the staff page.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="enroll">
+  <div class="wrap">
+    <span class="ey">Become Your Warrior of Wisdom</span>
+    <h2>Same-day enrollment. <em>Real human help.</em></h2>
+    <p>Call, text, or enroll online. We'll get you on the right course before close of business.</p>
+    <a href="tel:7062159661" class="phone-big">📞 706.215.9661</a>
+    <a href="#courses" class="btn btn-gold">Browse Courses &amp; Enroll →</a>
+    <div class="cta-final-info">
+      <div><div class="label">Office Hours</div><div class="val">Mon–Fri · 10am – 6pm</div></div>
+      <div><div class="label">Email</div><div class="val">registration@wowathena.com</div></div>
+      <div><div class="label">Address</div><div class="val">110 Athens West Parkway, Ste.C<br>Athens, GA 30606</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <div class="brand-foot">⚖️ ATHENA DUI ACADEMY<small>&amp; Family Enrichment</small></div>
+      <p>Georgia State-approved court-mandated courses delivered with dignity and care. Serving Northeast Georgia since 2018.</p>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#courses">DUI / RRP Program</a></li>
+        <li><a href="#courses">DUI Education</a></li>
+        <li><a href="#courses">Anger Management</a></li>
+        <li><a href="#courses">Parenting Classes</a></li>
+        <li><a href="#courses">FVIP</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#why">Why Athena</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:7062159661">706.215.9661</a></li>
+        <li><a href="mailto:registration@wowathena.com">registration@wowathena.com</a></li>
+        <li>Mon–Fri · 10am – 6pm</li>
+        <li>110 Athens West Pkwy, Ste.C<br>Athens, GA 30606</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2026 Athena DUI Academy &amp; Family Enrichment · Georgia State-Approved Provider</div>
+</footer>
+
+<a class="preview-pill" href="https://customershand.com" target="_blank" rel="noopener">
+  ✨ Designed by <strong>Customers Hand</strong>
+</a>
+
+</body>
+</html>

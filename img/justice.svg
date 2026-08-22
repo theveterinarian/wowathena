@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400" role="img" aria-label="Lady Justice holding the scales">
+  <defs>
+    <linearGradient id="vg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7ba98a"/>
+      <stop offset="60%" stop-color="#4a7c59"/>
+      <stop offset="100%" stop-color="#2d5a3d"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#vg)">
+    <!-- head -->
+    <circle cx="150" cy="70" r="26"/>
+    <!-- blindfold -->
+    <rect x="124" y="60" width="52" height="12" rx="6" fill="#f4c842" opacity=".85"/>
+    <!-- body / robe -->
+    <path d="M150 96c-26 0-42 18-48 46l-20 96c-4 20-10 34-18 46h172c-8-12-14-26-18-46l-20-96c-6-28-22-46-48-46z"/>
+    <!-- raised arm holding scales -->
+    <path d="M150 112 L232 74 l8 14 -82 40z"/>
+    <!-- sword arm -->
+    <path d="M150 130 L86 178 l-10 -12 62 -50z"/>
+    <rect x="60" y="176" width="10" height="120" rx="4"/>
+  </g>
+  <g stroke="#2d5a3d" stroke-width="4" fill="none">
+    <line x1="236" y1="74" x2="236" y2="34"/>
+    <line x1="186" y1="40" x2="286" y2="40"/>
+    <line x1="196" y1="40" x2="196" y2="66"/>
+    <line x1="276" y1="40" x2="276" y2="66"/>
+  </g>
+  <g fill="#4a7c59">
+    <path d="M176 66h40l-20 22z"/>
+    <path d="M256 66h40l-20 22z"/>
+  </g>
+  <ellipse cx="150" cy="292" rx="86" ry="10" fill="#2d5a3d" opacity=".35"/>
+</svg>
