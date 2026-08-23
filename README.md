@@ -20,13 +20,10 @@ Every push to the repository's **default branch** runs
 Pages. Pushes to other branches run the workflow but skip the deploy job. The
 live URL is printed on the workflow run summary (and under **Settings → Pages**).
 
-**One-time setup, required before the first successful deploy:**
-**Settings → Pages → Build and deployment → Source: *GitHub Actions***.
-
-This cannot be automated — a workflow's `GITHUB_TOKEN` is not allowed to create
-the Pages site, so the *Configure Pages* step fails until the switch is flipped.
-After flipping it, re-run the latest workflow from the **Actions** tab (or push
-any commit) and the site goes live.
+Pages is enabled on this repo with **Settings → Pages → Build and deployment →
+Source: *GitHub Actions***. If Pages is ever turned off, the *Configure Pages*
+step fails with `Get Pages site failed … Not Found`; a workflow's `GITHUB_TOKEN`
+is not allowed to re-enable it, so that switch has to be set by hand.
 
 You can also trigger a deploy by hand from the **Actions** tab
 (*Deploy site to GitHub Pages* → *Run workflow*).
