@@ -15,6 +15,30 @@ img/justice.png       hero artwork  -- SUPPLY THIS FILE
 
 ## Deployment
 
+The site is published two ways from the same push:
+
+| Target | Workflow | URL |
+|---|---|---|
+| cPanel (the real site) | `.github/workflows/deploy-cpanel.yml` | https://wow-athena.com |
+| GitHub Pages (preview)  | `.github/workflows/deploy.yml` | https://theveterinarian.github.io/wowathena/ |
+
+### cPanel
+
+`deploy-cpanel.yml` calls cPanel's Git Version Control API: it pulls the branch
+into the server-side clone (`VersionControl/update`), then queues a deployment
+(`VersionControlDeployment/create`) which runs the tasks in `.cpanel.yml`.
+
+It needs four repository secrets — `CPANEL_HOST`, `CPANEL_USER`,
+`CPANEL_API_TOKEN`, `CPANEL_REPO_ROOT` — and a clone that already exists under
+cPanel > Files > Git Version Control. `CPANEL_HOST` must be the hostname the
+server's TLS certificate is issued for (usually `serverNNN.<host>.com`), not
+`wow-athena.com`.
+
+Which files reach `public_html` is decided by `.cpanel.yml`, not by the
+workflow. Add a `/bin/cp` line there for any new file.
+
+### GitHub Pages
+
 Every push to the repository's **default branch** runs
 `.github/workflows/deploy.yml`, which publishes the repository root to GitHub
 Pages. Pushes to other branches run the workflow but skip the deploy job. The
@@ -28,7 +52,10 @@ is not allowed to re-enable it, so that switch has to be set by hand.
 You can also trigger a deploy by hand from the **Actions** tab
 (*Deploy site to GitHub Pages* → *Run workflow*).
 
-## Custom domain (wowathena.com)
+## Custom domain on GitHub Pages (optional)
+
+The live site is served from cPanel at wow-athena.com, so this is only needed
+if you ever move hosting to GitHub Pages.
 
 1. Add a `CNAME` file at the repo root containing just `wowathena.com`.
 2. At the DNS host, point the apex `A` records at GitHub Pages

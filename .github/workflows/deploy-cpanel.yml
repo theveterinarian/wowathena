@@ -1,0 +1,112 @@
+name: Deploy site to cPanel
+
+# Publishes the site to the cPanel server via cPanel's Git Version Control API.
+#
+# Requires four repository secrets (Settings > Secrets and variables > Actions):
+#   CPANEL_HOST       cPanel hostname, e.g. server123.web-hosting.com
+#                     (no https://; port defaults to 2083 if you omit it)
+#   CPANEL_USER       cPanel username that owns the API token
+#   CPANEL_API_TOKEN  API token created under cPanel > Security > Manage API Tokens
+#   CPANEL_REPO_ROOT  absolute path of the clone on the server,
+#                     e.g. /home/<user>/repositories/wowathena
+#
+# The server-side clone must already exist in cPanel > Files > Git Version Control,
+# and .cpanel.yml in this repo decides which files land in public_html.
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: cpanel-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via cPanel API
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          CPANEL_REPO_ROOT: ${{ secrets.CPANEL_REPO_ROOT }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          for v in CPANEL_HOST CPANEL_USER CPANEL_API_TOKEN CPANEL_REPO_ROOT; do
+            if [ -z "${!v}" ]; then
+              echo "::error::Repository secret $v is not set."
+              exit 1
+            fi
+          done
+
+          # Normalise the host: strip any scheme or trailing slash, default to port 2083.
+          host="${CPANEL_HOST#https://}"; host="${host#http://}"; host="${host%/}"
+          case "$host" in *:*) ;; *) host="$host:2083" ;; esac
+
+          # UAPI answers 200 even when the call fails, so every response is inspected.
+          call() {
+            local endpoint="$1"; shift
+            local out
+            if ! out=$(curl -sS --max-time 120 -G "https://$host/execute/$endpoint" \
+                          -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
+                          "$@" 2>&1); then
+              echo "::error::Could not reach the cPanel API at $endpoint. $out"
+              echo "::error::Check CPANEL_HOST — it must be the hostname its TLS certificate is issued for, not the website domain."
+              exit 1
+            fi
+            if ! jq -e . >/dev/null 2>&1 <<<"$out"; then
+              echo "::error::cPanel returned a non-JSON response for $endpoint (a login page usually means a bad token or username)."
+              exit 1
+            fi
+            if [ "$(jq -r '.status // 0' <<<"$out")" != "1" ]; then
+              echo "::error::cPanel rejected $endpoint: $(jq -r '(.errors // ["unknown error"]) | join("; ")' <<<"$out")"
+              exit 1
+            fi
+            printf '%s' "$out"
+          }
+
+          echo "Pulling branch $BRANCH from GitHub into the server-side clone…"
+          call VersionControl/update \
+            --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
+            --data-urlencode "branch=$BRANCH" >/dev/null
+          echo "  pulled."
+
+          echo "Queueing deployment (runs the tasks in .cpanel.yml)…"
+          call VersionControlDeployment/create \
+            --data-urlencode "repository_root=$CPANEL_REPO_ROOT" >/dev/null
+          echo "  queued."
+
+          echo "Waiting for the deployment to finish…"
+          for attempt in $(seq 1 30); do
+            sleep 10
+            body=$(call VersionControlDeployment/retrieve)
+            latest=$(jq -c --arg r "$CPANEL_REPO_ROOT" \
+              '[.data[]? | select(.repository_root == $r)] | sort_by(.timestamps.queued // 0) | last // empty' \
+              <<<"$body")
+
+            if [ -z "$latest" ]; then
+              echo "  no deployment record yet (attempt $attempt/30)…"
+              continue
+            fi
+
+            if [ "$(jq -r '.timestamps.failed // empty' <<<"$latest")" != "" ]; then
+              echo "::error::The cPanel deployment failed. Read the log on the server at $(jq -r '.log_path // "(path not reported)"' <<<"$latest")"
+              jq . <<<"$latest"
+              exit 1
+            fi
+
+            if [ "$(jq -r '.timestamps.succeeded // empty' <<<"$latest")" != "" ]; then
+              echo "Deployment succeeded."
+              jq . <<<"$latest"
+              exit 0
+            fi
+
+            echo "  still running (attempt $attempt/30)…"
+          done
+
+          echo "::error::Timed out after 5 minutes waiting for cPanel to finish deploying."
+          exit 1
