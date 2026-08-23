@@ -16,3 +16,4 @@ deployment:
     - /bin/cp    404.html     $DEPLOYPATH/
     - /bin/cp    deploy-check.html $DEPLOYPATH/
     - /bin/cp -R img/.        $DEPLOYPATH/img/
+    - /bin/rm -f              $DEPLOYPATH/img/.gitkeep

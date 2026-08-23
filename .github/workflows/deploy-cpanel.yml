@@ -90,6 +90,24 @@ jobs:
             fi
           }
 
+          # Create the server-side clone the first time round. The repository is
+          # public, so cPanel can clone it over HTTPS without any credentials.
+          existing=$(call VersionControl/retrieve 2>/dev/null || true)
+          if [ -z "$existing" ] || [ "$(jq -r --arg r "$CPANEL_REPO_ROOT" \
+               '[.data[]? | select(.repository_root == $r)] | length' <<<"$existing")" = "0" ]; then
+            echo "No clone exists at the configured repository root — creating it…"
+            if ! call VersionControl/create \
+                   --data-urlencode "type=git" \
+                   --data-urlencode "name=wowathena" \
+                   --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
+                   --data-urlencode "source_repository={\"remote_name\":\"origin\",\"url\":\"${{ github.server_url }}/${{ github.repository }}.git\"}" >/dev/null; then
+              list_repositories
+              echo "::error::Could not create the clone. Either point CPANEL_REPO_ROOT at an empty or non-existent directory, or create the repository by hand in cPanel > Files > Git Version Control." >&2
+              exit 1
+            fi
+            echo "  created."
+          fi
+
           echo "Pulling branch $BRANCH from GitHub into the server-side clone…"
           if ! call VersionControl/update \
                  --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
