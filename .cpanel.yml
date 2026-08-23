@@ -14,6 +14,8 @@ deployment:
     - /bin/mkdir -p $DEPLOYPATH/img
     - /bin/cp    index.html   $DEPLOYPATH/
     - /bin/cp    404.html     $DEPLOYPATH/
-    - /bin/cp    deploy-check.html $DEPLOYPATH/
+    # Removes the one-off deploy test page from the server. Safe to delete
+    # this line once it has run at least once.
+    - /bin/rm -f              $DEPLOYPATH/deploy-check.html
     - /bin/cp -R img/.        $DEPLOYPATH/img/
     - /bin/rm -f              $DEPLOYPATH/img/.gitkeep
