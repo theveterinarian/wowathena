@@ -7,8 +7,8 @@ One page, no build step: plain HTML + CSS, fonts from Google Fonts.
 
 ```
 index.html            the entire site
-img/logo.svg          placeholder logo  (drop in img/logo.png to override)
-img/justice.svg       placeholder hero art (drop in img/justice.png to override)
+img/logo.png          nav logo      -- SUPPLY THIS FILE
+img/justice.png       hero artwork  -- SUPPLY THIS FILE
 .nojekyll             serve files as-is on GitHub Pages
 .github/workflows/deploy.yml   Pages deployment
 ```
@@ -36,11 +36,18 @@ You can also trigger a deploy by hand from the **Actions** tab
    and `www` at a `CNAME` of `<owner>.github.io`.
 3. In **Settings → Pages**, set the custom domain and tick *Enforce HTTPS*.
 
-## Real images
+## Images
 
-`index.html` asks for `img/logo.png` and `img/justice.png` first and falls back
-to the bundled SVG placeholders when those files are absent. Commit the real
-PNGs at those paths and they take over with no code change.
+`index.html` references exactly two image files, and neither is in this repo:
+
+| Path              | Where it appears | Suggested size          |
+|-------------------|------------------|-------------------------|
+| `img/logo.png`    | Nav bar, top left | ~1400 x 300 px, transparent background |
+| `img/justice.png` | Hero, right side  | ~900 x 1200 px, transparent background |
+
+Add the real artwork at those exact paths (lowercase `img/`, lowercase
+filenames) and it renders with no code change. Until then the nav shows the
+logo's alt text and the hero panel is empty.
 
 ## Notes
 
