@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<meta name="googlebot" content="noindex, nofollow">
 <meta name="description" content="Athena DUI Academy &amp; Family Enrichment — Georgia State-approved DUI/RRP courses, anger management, and family enrichment in Athens, GA. Become a Warrior of Wisdom.">
 <meta name="theme-color" content="#5b1d8e">
 <title>Athena DUI Academy &amp; Family Enrichment — Warrior of Wisdom (W.O.W.)</title>
+<link rel="canonical" href="https://wow-athena.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wow-athena.com/">
+<meta property="og:site_name" content="Athena DUI Academy &amp; Family Enrichment">
+<meta property="og:title" content="Athena DUI Academy &amp; Family Enrichment — Athens, GA">
+<meta property="og:description" content="Georgia State-approved DUI/RRP courses, anger management, FVIP, parenting and family enrichment in Athens, GA. Same-day enrollment, virtual or in-person.">
+<meta property="og:image" content="https://wow-athena.com/img/logo.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>⚖️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -270,6 +276,21 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 .cta-final h2 em { background: linear-gradient(180deg, transparent 62%, var(--gold) 62%); color: #fff; padding: 0 6px; }
 .cta-final p { color: rgba(255,255,255,.9); font-size: 1.15rem; max-width: 540px; margin: 1.5rem auto 2.5rem; }
 .cta-final .phone-big { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; color: var(--gold); display: block; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+.selected-program {
+  display: none; align-items: center; justify-content: center; gap: .6rem;
+  margin: 0 auto 1.75rem; padding: .7rem 1.25rem; max-width: max-content;
+  background: rgba(244,200,66,.15); border: 1px solid rgba(244,200,66,.45);
+  border-radius: 999px; color: #fff; font-size: .95rem; font-weight: 600;
+}
+.selected-program.is-shown { display: flex; }
+.selected-program .label { color: var(--gold); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.enroll-embed { display: none; max-width: 720px; margin: 2.5rem auto 0; }
+.enroll-embed.is-shown { display: block; }
+.enroll-embed iframe {
+  width: 100%; min-height: 700px; border: 0; border-radius: 16px;
+  background: #fff; box-shadow: 0 18px 40px -16px rgba(0,0,0,.45);
+}
+.enroll-or { margin: 2rem 0 0; color: rgba(255,255,255,.7); font-size: .95rem; }
 .cta-final-info { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,.15); }
 .cta-final-info > div { text-align: center; }
 .cta-final-info .label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; font-weight: 700; }
@@ -417,42 +438,42 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
         <h3>DUI / RRP Program</h3>
         <div class="duration">Level I · 20-hour</div>
         <p>Georgia's state-approved DUI Risk Reduction Program (RRP). Required for license reinstatement after most first DUI offenses.</p>
-        <div class="meta"><span class="price">$360<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+        <div class="meta"><span class="price">$360<small>/full</small></span><a href="#enroll" class="enroll" data-course="DUI / RRP Program">Enroll →</a></div>
       </div>
       <div class="course">
         <div class="course-icon">📋</div>
         <h3>DUI Education</h3>
         <div class="duration">Level II · 12 weeks</div>
         <p>Extended program for second or third offenses. Includes individual assessment and aftercare planning.</p>
-        <div class="meta"><span class="price">$675<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+        <div class="meta"><span class="price">$675<small>/full</small></span><a href="#enroll" class="enroll" data-course="DUI Education">Enroll →</a></div>
       </div>
       <div class="course">
         <div class="course-icon">🛡️</div>
         <h3>Family Violence Intervention</h3>
         <div class="duration">FVIP · 24 weeks</div>
         <p>State-certified Family Violence Intervention Program (FVIP). Group setting, certified facilitators.</p>
-        <div class="meta"><span class="price">$580<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+        <div class="meta"><span class="price">$580<small>/full</small></span><a href="#enroll" class="enroll" data-course="Family Violence Intervention">Enroll →</a></div>
       </div>
       <div class="course">
         <div class="course-icon">🧘</div>
         <h3>Anger Management</h3>
         <div class="duration">8-week program</div>
         <p>Court-approved cognitive behavioral curriculum. Virtual or in-person, evenings available.</p>
-        <div class="meta"><span class="price">$285<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+        <div class="meta"><span class="price">$285<small>/full</small></span><a href="#enroll" class="enroll" data-course="Anger Management">Enroll →</a></div>
       </div>
       <div class="course">
         <div class="course-icon">👨‍👩‍👧</div>
         <h3>Parenting Education</h3>
         <div class="duration">4-week class</div>
         <p>For divorce, custody, or DFCS-mandated cases. Trauma-informed, judgment-free.</p>
-        <div class="meta"><span class="price">$150<small>/full</small></span><a href="#enroll" class="enroll">Enroll →</a></div>
+        <div class="meta"><span class="price">$150<small>/full</small></span><a href="#enroll" class="enroll" data-course="Parenting Education">Enroll →</a></div>
       </div>
       <div class="course">
         <div class="course-icon">🌳</div>
         <h3>Family Enrichment</h3>
         <div class="duration">Custom workshops</div>
         <p>Non-court workshops for couples, co-parents, and families seeking growth and reconnection.</p>
-        <div class="meta"><span class="price">From $75<small>/session</small></span><a href="#enroll" class="enroll">Learn more →</a></div>
+        <div class="meta"><span class="price">From $75<small>/session</small></span><a href="#enroll" class="enroll" data-course="Family Enrichment">Learn more →</a></div>
       </div>
     </div>
   </div>
@@ -605,8 +626,24 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <span class="ey">Become Your Warrior of Wisdom</span>
     <h2>Same-day enrollment. <em>Real human help.</em></h2>
     <p>Call, text, or enroll online. We'll get you on the right course before close of business.</p>
+
+    <div class="selected-program" id="selectedProgram" role="status" aria-live="polite">
+      <span class="label">Program selected</span>
+      <span id="selectedProgramName"></span>
+    </div>
+
     <a href="tel:7062159661" class="phone-big">📞 706.215.9661</a>
     <a href="#courses" class="btn btn-gold">Browse Courses &amp; Enroll →</a>
+
+    <!-- The enrolment form appears here once ENROLL_FORM_URL is filled in
+         near the bottom of this file. Until then this stays hidden and
+         visitors enrol by phone or email. -->
+    <div class="enroll-embed" id="enrollEmbed">
+      <p class="enroll-or">Or fill in the enrollment form below and we'll call you back.</p>
+      <iframe id="enrollFrame" title="Enrollment form" loading="lazy" src="about:blank">
+        Loading the enrollment form…
+      </iframe>
+    </div>
     <div class="cta-final-info">
       <div><div class="label">Office Hours</div><div class="val">Mon–Fri · 10am – 6pm</div></div>
       <div><div class="label">Email</div><div class="val">registration@wowathena.com</div></div>
@@ -657,5 +694,53 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
   ✨ Designed by <strong>Customers Hand</strong>
 </a>
 
+<script>
+/* ------------------------------------------------------------------
+   ENROLLMENT FORM
+   Paste the Google Form's share link between the quotes below, then the
+   form appears in the "Enroll" section automatically. Use the plain link
+   from Google Forms (Send > the chain-link tab), e.g.
+   "https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform"
+   Leave it empty and the page simply shows the phone number instead.
+------------------------------------------------------------------- */
+var ENROLL_FORM_URL = "";
+
+/* Optional: prefills the form's "Which program?" question with whichever
+   course the visitor clicked. To find this value, open the Google Form,
+   choose "Get pre-filled link", pick any program, submit, and copy the
+   entry.NNNNNNNNN part of the link Google gives you. */
+var ENROLL_FORM_COURSE_FIELD = "";
+
+(function () {
+  var embed  = document.getElementById('enrollEmbed');
+  var frame  = document.getElementById('enrollFrame');
+  var banner = document.getElementById('selectedProgram');
+  var name   = document.getElementById('selectedProgramName');
+
+  function formSrc(course) {
+    if (!ENROLL_FORM_URL) return '';
+    var url = ENROLL_FORM_URL.replace(/\?.*$/, '');
+    if (course && ENROLL_FORM_COURSE_FIELD) {
+      return url + '?usp=pp_url&' + encodeURIComponent(ENROLL_FORM_COURSE_FIELD) +
+             '=' + encodeURIComponent(course) + '&embedded=true';
+    }
+    return url + '?embedded=true';
+  }
+
+  if (ENROLL_FORM_URL) {
+    frame.src = formSrc('');
+    embed.classList.add('is-shown');
+  }
+
+  document.querySelectorAll('.enroll[data-course]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var course = link.getAttribute('data-course');
+      name.textContent = course;
+      banner.classList.add('is-shown');
+      if (ENROLL_FORM_URL) frame.src = formSrc(course);
+    });
+  });
+})();
+</script>
 </body>
 </html>

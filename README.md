@@ -15,12 +15,12 @@ img/justice.png       hero artwork  -- SUPPLY THIS FILE
 
 ## Deployment
 
-The site is published two ways from the same push:
+Every push to the default branch deploys to cPanel via
+`.github/workflows/deploy-cpanel.yml`. The live site is
+https://wow-athena.com.
 
-| Target | Workflow | URL |
-|---|---|---|
-| cPanel (the real site) | `.github/workflows/deploy-cpanel.yml` | https://wow-athena.com |
-| GitHub Pages (preview)  | `.github/workflows/deploy.yml` | https://theveterinarian.github.io/wowathena/ |
+The GitHub Pages preview was removed: it served the same page on a second
+public URL, which would have competed with the real site in search results.
 
 ### cPanel
 
