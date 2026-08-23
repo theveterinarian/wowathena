@@ -75,15 +75,34 @@ jobs:
             printf '%s' "$out"
           }
 
+          # If the configured root is wrong, list what the account actually has so
+          # the right value for CPANEL_REPO_ROOT is visible in this log.
+          list_repositories() {
+            echo "Repositories cPanel knows about on this account:" >&2
+            local repos
+            if repos=$(call VersionControl/retrieve 2>/dev/null); then
+              jq -r '.data[]? | "  \(.repository_root)   (name: \(.name // "?"), branch: \(.branch // "?"))"' <<<"$repos" >&2
+              if [ "$(jq -r '.data | length' <<<"$repos")" = "0" ]; then
+                echo "  (none — no Git repository has been created in cPanel > Files > Git Version Control)" >&2
+              fi
+            else
+              echo "  (could not list them)" >&2
+            fi
+          }
+
           echo "Pulling branch $BRANCH from GitHub into the server-side clone…"
-          call VersionControl/update \
-            --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
-            --data-urlencode "branch=$BRANCH" >/dev/null
+          if ! call VersionControl/update \
+                 --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
+                 --data-urlencode "branch=$BRANCH" >/dev/null; then
+            list_repositories
+            echo "::error::Set the CPANEL_REPO_ROOT secret to one of the paths listed above." >&2
+            exit 1
+          fi
           echo "  pulled."
 
           echo "Queueing deployment (runs the tasks in .cpanel.yml)…"
           call VersionControlDeployment/create \
-            --data-urlencode "repository_root=$CPANEL_REPO_ROOT" >/dev/null
+            --data-urlencode "repository_root=$CPANEL_REPO_ROOT" >/dev/null || exit 1
           echo "  queued."
 
           echo "Waiting for the deployment to finish…"
