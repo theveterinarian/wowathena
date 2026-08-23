@@ -48,23 +48,29 @@ jobs:
           case "$host" in *:*) ;; *) host="$host:2083" ;; esac
 
           # UAPI answers 200 even when the call fails, so every response is inspected.
+          # Callers capture stdout for the response body, so every diagnostic goes
+          # to stderr — otherwise a `call ... >/dev/null` would discard the reason
+          # for the failure along with the body.
           call() {
             local endpoint="$1"; shift
-            local out
-            if ! out=$(curl -sS --max-time 120 -G "https://$host/execute/$endpoint" \
-                          -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
-                          "$@" 2>&1); then
-              echo "::error::Could not reach the cPanel API at $endpoint. $out"
-              echo "::error::Check CPANEL_HOST — it must be the hostname its TLS certificate is issued for, not the website domain."
-              exit 1
+            local out rc=0
+            out=$(curl -sS --max-time 120 -G "https://$host/execute/$endpoint" \
+                     -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}" \
+                     "$@" 2>&1) || rc=$?
+            if [ "$rc" -ne 0 ]; then
+              echo "::error::Could not reach the cPanel API at $endpoint (curl exit $rc): $out" >&2
+              echo "::error::CPANEL_HOST must be the hostname the server's TLS certificate is issued for (usually serverNNN.<hostingprovider>.com), reachable on port 2083 — not wow-athena.com." >&2
+              return 1
             fi
             if ! jq -e . >/dev/null 2>&1 <<<"$out"; then
-              echo "::error::cPanel returned a non-JSON response for $endpoint (a login page usually means a bad token or username)."
-              exit 1
+              echo "::error::cPanel returned a non-JSON response for $endpoint. First 400 characters:" >&2
+              printf '%.400s\n' "$out" >&2
+              echo "::error::An HTML login page here usually means a wrong CPANEL_USER or an expired CPANEL_API_TOKEN." >&2
+              return 1
             fi
             if [ "$(jq -r '.status // 0' <<<"$out")" != "1" ]; then
-              echo "::error::cPanel rejected $endpoint: $(jq -r '(.errors // ["unknown error"]) | join("; ")' <<<"$out")"
-              exit 1
+              echo "::error::cPanel rejected $endpoint: $(jq -r '(.errors // ["unknown error"]) | join("; ")' <<<"$out")" >&2
+              return 1
             fi
             printf '%s' "$out"
           }
