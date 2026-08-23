@@ -1,0 +1,17 @@
+---
+# cPanel "Git Version Control" deployment.
+#
+# This file is what cPanel reads when you press "Deploy HEAD Commit" on the
+# repository (cPanel > Files > Git Version Control > Manage > Pull or Deploy).
+# It copies the site into public_html.
+#
+# $HOME is your cPanel home directory (/home/<your-cpanel-username>).
+# If your site lives somewhere other than public_html - e.g. an addon domain
+# at $HOME/wowathena.com - change DEPLOYPATH on the first line below.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/mkdir -p $DEPLOYPATH/img
+    - /bin/cp    index.html   $DEPLOYPATH/
+    - /bin/cp    404.html     $DEPLOYPATH/
+    - /bin/cp -R img/.        $DEPLOYPATH/img/
