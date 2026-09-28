@@ -33,6 +33,7 @@ deployment:
     - /bin/cp -R how-much-is-dui-school-in-georgia $DEPLOYPATH/
     - /bin/cp -R ignition-interlock-georgia $DEPLOYPATH/
     - /bin/cp -R online-anger-management-classes-georgia $DEPLOYPATH/
+    - /bin/cp -R risk-reduction-program-drug-possession-bui-georgia $DEPLOYPATH/
     - /bin/cp -R second-dui-georgia-clinical-evaluation $DEPLOYPATH/
     - /bin/cp -R what-do-you-learn-in-anger-management $DEPLOYPATH/
     - /bin/cp -R what-do-you-learn-in-dui-school $DEPLOYPATH/
