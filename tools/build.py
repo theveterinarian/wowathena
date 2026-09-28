@@ -47,7 +47,7 @@ CTAS = {
     },
     "driver": {
         "title": "Need a Driver Improvement course?",
-        "text": "Athena teaches Georgia's state-approved 6-hour Driver Improvement course, live online or in person in Athens.",
+        "text": "Athena teaches Georgia's state-approved 6-hour Driver Improvement course at our Athens office. Call to find the next class.",
         "page": "/driver-improvement-athens-ga/",
     },
     "clinical": {
