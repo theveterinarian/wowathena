@@ -18,11 +18,13 @@ deployment:
     - /bin/rm -f              $DEPLOYPATH/img/.gitkeep
     - /bin/cp -R assets $DEPLOYPATH/
     - /bin/cp -R guides $DEPLOYPATH/
+    - /bin/cp -R anger-management-athens-ga $DEPLOYPATH/
     - /bin/cp -R can-you-take-dui-school-online-in-georgia $DEPLOYPATH/
     - /bin/cp -R clinical-evaluation-athens-ga $DEPLOYPATH/
     - /bin/cp -R driver-improvement-athens-ga $DEPLOYPATH/
     - /bin/cp -R dui-school-athens-ga $DEPLOYPATH/
     - /bin/cp -R how-long-are-court-ordered-anger-management-classes $DEPLOYPATH/
+    - /bin/cp -R how-long-is-dui-school-in-georgia $DEPLOYPATH/
     - /bin/cp -R how-much-is-dui-school-in-georgia $DEPLOYPATH/
     - /bin/cp -R online-anger-management-classes-georgia $DEPLOYPATH/
     - /bin/cp -R what-do-you-learn-in-anger-management $DEPLOYPATH/
