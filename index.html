@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Athena DUI Academy &amp; Family Enrichment — Georgia State-approved DUI/RRP courses, anger management, and family enrichment in Athens, GA. Become a Warrior of Wisdom.">
+<meta name="description" content="Athena DUI Academy &amp; Family Enrichment in Athens, GA: Georgia DDS-approved DUI Risk Reduction Program (RRP Cert #10432), Driver Improvement, clinical evaluations and anger management. Virtual or in person.">
 <meta name="theme-color" content="#5b1d8e">
 <title>Athena DUI Academy &amp; Family Enrichment — Warrior of Wisdom (W.O.W.)</title>
 <meta name="google-site-verification" content="sOpk6UxyxmE65orgqB77Tw9ltyp3iHLBycuSNh352rs">
@@ -12,13 +12,61 @@
 <meta property="og:url" content="https://wow-athena.com/">
 <meta property="og:site_name" content="Athena DUI Academy &amp; Family Enrichment">
 <meta property="og:title" content="Athena DUI Academy &amp; Family Enrichment — Athens, GA">
-<meta property="og:description" content="Georgia State-approved DUI/RRP courses, anger management, FVIP, parenting and family enrichment in Athens, GA. Same-day enrollment, virtual or in-person.">
+<meta property="og:description" content="Georgia DDS-approved DUI Risk Reduction Program (RRP Cert #10432), Driver Improvement, clinical evaluations and anger management in Athens, GA. Virtual or in person.">
 <meta property="og:image" content="https://wow-athena.com/img/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>⚖️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://wow-athena.com/#organization",
+  "name": "Athena DUI Academy & Family Enrichment",
+  "alternateName": "WOW Athena DUI School",
+  "url": "https://wow-athena.com/",
+  "logo": "https://wow-athena.com/img/logo.png",
+  "image": "https://wow-athena.com/img/logo.png",
+  "telephone": "+1-706-215-9661",
+  "email": "registration@wowathena.com",
+  "slogan": "We Help You Become a Warrior of Wisdom (W.O.W.)",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "110 Athens West Parkway, Ste. C",
+    "addressLocality": "Athens",
+    "addressRegion": "GA",
+    "postalCode": "30606",
+    "addressCountry": "US"
+  },
+  "areaServed": { "@type": "State", "name": "Georgia" },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "10:00",
+    "closes": "18:00"
+  }],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Georgia DDS-certified DUI Alcohol or Drug Use Risk Reduction Program, RRP Cert #10432",
+    "recognizedBy": { "@type": "GovernmentOrganization", "name": "Georgia Department of Driver Services" }
+  },
+  "makesOffer": [
+    { "@type": "Offer", "price": "360", "priceCurrency": "USD",
+      "itemOffered": { "@type": "Course", "name": "DUI Risk Reduction Program (RRP)", "url": "https://wow-athena.com/dui-school-athens-ga/",
+        "provider": { "@id": "https://wow-athena.com/#organization" } } },
+    { "@type": "Offer",
+      "itemOffered": { "@type": "Course", "name": "Driver Improvement (6-hour defensive driving)", "url": "https://wow-athena.com/driver-improvement-athens-ga/",
+        "provider": { "@id": "https://wow-athena.com/#organization" } } },
+    { "@type": "Offer", "price": "150", "priceCurrency": "USD",
+      "itemOffered": { "@type": "Service", "name": "Clinical Evaluation", "url": "https://wow-athena.com/clinical-evaluation-athens-ga/" } },
+    { "@type": "Offer",
+      "itemOffered": { "@type": "Course", "name": "Anger Management", "url": "https://wow-athena.com/anger-management-athens-ga/",
+        "provider": { "@id": "https://wow-athena.com/#organization" } } }
+  ]
+}
+</script>
 <style>
 :root {
   --purple:#5b1d8e; --purple-dk:#3f1166; --purple-lt:#7c3aed; --purple-soft:#f3e8ff;
@@ -181,7 +229,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 
 /* Courses */
 .courses { background: var(--cream); }
-.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .course {
   background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.75rem;
   position: relative; transition: all .25s; overflow: hidden;
@@ -203,6 +251,13 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 .course .price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--purple); font-size: 1.1rem; }
 .course .price small { color: var(--muted); font-weight: 500; font-size: .82rem; font-family: 'Inter', sans-serif; }
 .course .enroll { color: var(--purple); font-weight: 700; font-size: .9rem; display: inline-flex; align-items: center; gap: .25rem; }
+.course .actions { display: flex; align-items: center; gap: 1.1rem; }
+.course .details { color: var(--muted); font-weight: 600; font-size: .88rem; }
+.course .details:hover { color: var(--purple); }
+.course .price small.call { font-size: .95rem; color: var(--purple); font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+.course-badge { position: absolute; top: 1.4rem; right: 1.4rem; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--verdigris-dk); background: #e8f3eb; border: 1px solid rgba(45,90,61,.2); padding: .3rem .6rem; border-radius: 999px; }
+.cert { font-weight: 800; color: var(--purple); white-space: nowrap; }
+.why .cert, .cta-final .cert, .foot .cert { color: var(--gold); }
 
 /* Why us */
 .why { background: linear-gradient(135deg, var(--purple-dk) 0%, var(--purple) 100%); color: #fff; position: relative; overflow: hidden; }
@@ -277,21 +332,6 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 .cta-final h2 em { background: linear-gradient(180deg, transparent 62%, var(--gold) 62%); color: #fff; padding: 0 6px; }
 .cta-final p { color: rgba(255,255,255,.9); font-size: 1.15rem; max-width: 540px; margin: 1.5rem auto 2.5rem; }
 .cta-final .phone-big { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; color: var(--gold); display: block; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-.selected-program {
-  display: none; align-items: center; justify-content: center; gap: .6rem;
-  margin: 0 auto 1.75rem; padding: .7rem 1.25rem; max-width: max-content;
-  background: rgba(244,200,66,.15); border: 1px solid rgba(244,200,66,.45);
-  border-radius: 999px; color: #fff; font-size: .95rem; font-weight: 600;
-}
-.selected-program.is-shown { display: flex; }
-.selected-program .label { color: var(--gold); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
-.enroll-embed { display: none; max-width: 720px; margin: 2.5rem auto 0; }
-.enroll-embed.is-shown { display: block; }
-.enroll-embed iframe {
-  width: 100%; min-height: 700px; border: 0; border-radius: 16px;
-  background: #fff; box-shadow: 0 18px 40px -16px rgba(0,0,0,.45);
-}
-.enroll-or { margin: 2rem 0 0; color: rgba(255,255,255,.7); font-size: .95rem; }
 .cta-final-info { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,.15); }
 .cta-final-info > div { text-align: center; }
 .cta-final-info .label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; font-weight: 700; }
@@ -300,8 +340,8 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 /* Footer */
 .foot { background: var(--ink); color: rgba(255,255,255,.65); padding: 3rem 0 1.5rem; font-size: .9rem; }
 .foot .wrap { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-.foot .brand-foot { color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.15rem; }
-.foot .brand-foot small { display: block; font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 1.1rem; font-weight: 700; margin-top: .25rem; }
+.foot .brand-foot { display: inline-block; background: #fff; padding: .7rem 1rem; border-radius: 14px; }
+.foot .brand-foot img { height: 56px; width: auto; display: block; }
 .foot h4 { color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 .85rem; font-weight: 700; }
 .foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
 .foot a { color: rgba(255,255,255,.65); transition: color .15s; }
@@ -339,26 +379,26 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 <body>
 
 <div class="topbar">
-  Class Now, Pay Later with <strong>Stripe</strong>
+  Class Now, Pay Later with <strong>Stripe</strong> for qualifying students
   <span class="sep">|</span>
   Call <strong>706.215.9661</strong> for more info
 </div>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="#" class="brand" aria-label="Athena DUI Academy &amp; Family Enrichment">
-      <img src="img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" class="brand-logo">
+    <a href="/" class="brand" aria-label="Athena DUI Academy &amp; Family Enrichment">
+      <img src="/img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" class="brand-logo">
     </a>
     <div class="nav-links">
       <a href="#courses">Courses</a>
-      <a href="#mission">Mission</a>
       <a href="#why">Why Athena</a>
       <a href="#how">How It Works</a>
+      <a href="/guides/">Guides</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-phone">
       <a href="tel:7062159661" class="num">706.215.9661</a>
-      <a href="#enroll" class="btn btn-primary">Enroll Today</a>
+      <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-primary">Enroll Now</a>
     </div>
   </div>
 </nav>
@@ -366,19 +406,19 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow">⚖️ Georgia State-Approved · DUI / RRP Provider</span>
+      <span class="eyebrow">⚖️ Georgia DDS-Approved DUI Risk Reduction · RRP Cert #10432</span>
       <h1>
         We Help You Become a <span class="wow">Warrior of Wisdom</span>
         <span class="wow-tag">(W.O.W.)</span>
       </h1>
-      <p class="lede"><strong>Georgia State-approved DUI/RRP Program</strong> · 20-hour intervention course · classes for most schedules · virtual &amp; in-person options available.</p>
+      <p class="lede"><strong>Georgia State-approved DUI Risk Reduction Program</strong> · 20-hour intervention course · Driver Improvement, clinical evaluations &amp; anger management · virtual &amp; in-person options available.</p>
       <div class="hero-ctas">
         <a href="#courses" class="btn btn-gold">Find Your Class →</a>
-        <a href="#how" class="btn btn-primary">How it works</a>
+        <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
       </div>
       <div class="hero-meta">
-        <span>Same-day enrollment</span>
-        <span>Pay Later via Stripe</span>
+        <span>Register online or by phone</span>
+        <span>Pay later for qualifying students</span>
         <span>Virtual &amp; in-person</span>
         <span>Mon–Fri · 10am–6pm</span>
       </div>
@@ -405,10 +445,10 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 
 <section class="trust">
   <div class="wrap">
-    <div class="trust-item"><span class="ico">⚖️</span>GA State Approved</div>
+    <div class="trust-item"><span class="ico">⚖️</span>GA DDS Approved · RRP Cert #10432</div>
     <div class="trust-item"><span class="ico">📜</span>Court Accepted</div>
     <div class="trust-item"><span class="ico">💻</span>Virtual &amp; In-Person</div>
-    <div class="trust-item"><span class="ico">💳</span>Pay Later · Stripe</div>
+    <div class="trust-item"><span class="ico">💳</span>Pay Later · Qualifying Students</div>
     <div class="trust-item"><span class="ico">⭐</span>4.9 · 1,200+ Reviews</div>
   </div>
 </section>
@@ -430,51 +470,39 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Our Programs</span>
-      <h2>Court-mandated <em>courses we offer.</em></h2>
-      <p>Every program is Georgia State-approved, court-recognized, and built around dignified instruction. Pick the one your court ordered — enroll same day.</p>
+      <h2>Courses &amp; services <em>we offer.</em></h2>
+      <p>Our DUI Risk Reduction Program and Driver Improvement course are Georgia State-approved (<span class="cert">RRP Cert #10432</span>). Find your court-ordered course, then call now or click to register for our next class.</p>
     </div>
     <div class="course-grid">
       <div class="course">
+        <span class="course-badge">State-approved</span>
         <div class="course-icon">🚗</div>
-        <h3>DUI / RRP Program</h3>
-        <div class="duration">Level I · 20-hour</div>
-        <p>Georgia's state-approved DUI Risk Reduction Program (RRP). Required for license reinstatement after most first DUI offenses.</p>
-        <div class="meta"><span class="price">$360<small>/full</small></span><a href="#enroll" class="enroll" data-course="DUI / RRP Program">Enroll →</a></div>
+        <h3>DUI Risk Reduction Program</h3>
+        <div class="duration">20-hour course + assessment</div>
+        <p>Georgia DDS-approved DUI Alcohol or Drug Use Risk Reduction Program (<span class="cert">RRP Cert #10432</span>). Required to reinstate your license after a DUI, and after certain drug-possession and underage-alcohol convictions.</p>
+        <div class="meta"><span class="price">$360<small>/full</small></span><span class="actions"><a href="/dui-school-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
+      </div>
+      <div class="course">
+        <span class="course-badge">State-approved</span>
+        <div class="course-icon">🛣️</div>
+        <h3>Driver Improvement</h3>
+        <div class="duration">6-hour defensive driving</div>
+        <p>Georgia DDS-approved Driver Improvement course. Use it to meet a court order, remove up to 7 points from your record once every 5 years, reinstate your license, or qualify for a possible insurance discount.</p>
+        <div class="meta"><span class="price"><small class="call">Call for pricing</small></span><span class="actions"><a href="/driver-improvement-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
       </div>
       <div class="course">
         <div class="course-icon">📋</div>
-        <h3>DUI Education</h3>
-        <div class="duration">Level II · 12 weeks</div>
-        <p>Extended program for second or third offenses. Includes individual assessment and aftercare planning.</p>
-        <div class="meta"><span class="price">$675<small>/full</small></span><a href="#enroll" class="enroll" data-course="DUI Education">Enroll →</a></div>
-      </div>
-      <div class="course">
-        <div class="course-icon">🛡️</div>
-        <h3>Family Violence Intervention</h3>
-        <div class="duration">FVIP · 24 weeks</div>
-        <p>State-certified Family Violence Intervention Program (FVIP). Group setting, certified facilitators.</p>
-        <div class="meta"><span class="price">$580<small>/full</small></span><a href="#enroll" class="enroll" data-course="Family Violence Intervention">Enroll →</a></div>
+        <h3>Clinical Evaluation</h3>
+        <div class="duration">One-on-one evaluation</div>
+        <p>Georgia requires a clinical evaluation to reinstate your license after two or more DUI convictions within 10 years, and courts sometimes order one. The evaluation determines whether treatment is recommended.</p>
+        <div class="meta"><span class="price">$150<small>/evaluation</small></span><span class="actions"><a href="/clinical-evaluation-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
       </div>
       <div class="course">
         <div class="course-icon">🧘</div>
         <h3>Anger Management</h3>
-        <div class="duration">8-week program</div>
-        <p>Court-approved cognitive behavioral curriculum. Virtual or in-person, evenings available.</p>
-        <div class="meta"><span class="price">$285<small>/full</small></span><a href="#enroll" class="enroll" data-course="Anger Management">Enroll →</a></div>
-      </div>
-      <div class="course">
-        <div class="course-icon">👨‍👩‍👧</div>
-        <h3>Parenting Education</h3>
-        <div class="duration">4-week class</div>
-        <p>For divorce, custody, or DFCS-mandated cases. Trauma-informed, judgment-free.</p>
-        <div class="meta"><span class="price">$150<small>/full</small></span><a href="#enroll" class="enroll" data-course="Parenting Education">Enroll →</a></div>
-      </div>
-      <div class="course">
-        <div class="course-icon">🌳</div>
-        <h3>Family Enrichment</h3>
-        <div class="duration">Custom workshops</div>
-        <p>Non-court workshops for couples, co-parents, and families seeking growth and reconnection.</p>
-        <div class="meta"><span class="price">From $75<small>/session</small></span><a href="#enroll" class="enroll" data-course="Family Enrichment">Learn more →</a></div>
+        <div class="duration">Court-ordered or personal</div>
+        <p>Practical skills for handling anger, stress and conflict, for court, probation or personal goals. Check your order for the number of hours required, and call us to confirm the right class. Live virtual or in person.</p>
+        <div class="meta"><span class="price"><small class="call">Call for pricing</small></span><span class="actions"><a href="/anger-management-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
       </div>
     </div>
   </div>
@@ -485,38 +513,38 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <div class="head">
       <span class="eyebrow">Why Athena</span>
       <h2>Compassionate <em style="color:#fff;">over judgmental.</em></h2>
-      <p>You're not your worst day. We treat every student with the respect that helps you actually grow — and we get you compliant fast.</p>
+      <p>You're not your worst day. We treat every student with the respect that helps you actually grow — and we help you get compliant.</p>
     </div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">⚡</div>
-        <h3>Same-day enrollment</h3>
-        <p>Register online and start today. Most students complete the first hour the same evening.</p>
+        <h3>Call now or click to register</h3>
+        <p>Sign up and fill out your DDS paperwork online, then choose our next class that fits your schedule. Prefer to talk? Call 706.215.9661.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">📨</div>
         <h3>Certificate to your court</h3>
-        <p>We submit completion certificates directly to your probation officer or court clerk — at no extra cost.</p>
+        <p>When needed, we submit completion certificates directly to your probation officer or court clerk — at no extra cost.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">💳</div>
         <h3>Class Now, Pay Later</h3>
-        <p>Split payments through Stripe into 2 or 4 interest-free installments. No credit checks, no judgment.</p>
+        <p>Qualifying students can take class now and pay later through Stripe. Ask us when you register.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">💻</div>
         <h3>Virtual or in-person</h3>
-        <p>Choose what works for your schedule — live virtual classes weekly, in-person at our Athens office.</p>
+        <p>Choose what works for your schedule — live virtual classes, or in person at our Athens office.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">🏛️</div>
         <h3>Georgia State approved</h3>
-        <p>Our DUI/RRP curriculum is approved by the GA DDS and accepted by all 159 Georgia counties.</p>
+        <p>Our DUI Risk Reduction Program is approved by the Georgia DDS — <span class="cert">RRP Cert #10432</span>. Our Driver Improvement course is state-approved as well.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">❤️</div>
         <h3>Real human support</h3>
-        <p>Reach a real person Monday through Friday. We answer questions about your specific court order.</p>
+        <p>We are available in person or by phone! Reach a real person Monday through Friday, 10am–6pm, with questions about your specific court order.</p>
       </div>
     </div>
   </div>
@@ -527,7 +555,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <div class="head">
       <span class="eyebrow">How It Works</span>
       <h2>From court order to <em>cleared.</em></h2>
-      <p>Four steps. Most students go from enrolled to certified in days, not weeks.</p>
+      <p>Four steps from your court order to your certificate.</p>
     </div>
     <div class="how-grid">
       <div class="step">
@@ -537,18 +565,18 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Enroll &amp; pay</h3>
-        <p>Register online in 5 minutes. Pay in full or split into Stripe installments.</p>
+        <h3>Register &amp; pay</h3>
+        <p>Register online or by phone and complete your DDS paperwork. Pay in full, or pay later through Stripe if you qualify.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Complete</h3>
-        <p>Work through the program at your pace — virtual anytime, or in-person on a schedule.</p>
+        <h3>Attend your class</h3>
+        <p>Join our next scheduled class — live online or in person at our Athens office.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>Cleared</h3>
-        <p>We send your certificate to the court. You're done — congratulations.</p>
+        <h3>Get your certificate</h3>
+        <p>Receive your certificate of completion. When needed, we send it to the court for you.</p>
       </div>
     </div>
   </div>
@@ -591,62 +619,148 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     </div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>Will the court accept my certificate?</summary>
-        <p>Yes. Athena is a Georgia State-approved DUI/RRP provider, and our certificates are accepted by all 159 counties in Georgia and by the Department of Driver Services for license reinstatement. If you're unsure about your specific court, call us at 706.215.9661 and we'll verify before you pay.</p>
+        <summary>Is Athena state-approved?</summary>
+        <p>Yes. Our DUI Alcohol or Drug Use Risk Reduction Program is certified by the Georgia Department of Driver Services under RRP Cert #10432, and our Driver Improvement course is state-approved as well. Our anger management classes and clinical evaluations are separate services — check your court order for exactly what you need, or call us and we&#x27;ll help you read it.</p>
       </details>
       <details class="faq-item">
-        <summary>How fast can I complete the 20-hour DUI/RRP course?</summary>
-        <p>Most students complete the full 20-hour intervention course in 3–7 days at their own pace through our virtual option. In-person classes follow a set schedule — view available dates on the enrollment page or call us.</p>
+        <summary>Will DDS accept my DUI school certificate?</summary>
+        <p>Yes. Certificates of completion from our DDS-certified Risk Reduction Program (RRP Cert #10432) are accepted by the Georgia DDS for license reinstatement. If you&#x27;re unsure what your court or DDS requires, call us at 706.215.9661 before you register.</p>
       </details>
       <details class="faq-item">
-        <summary>Can I complete classes 100% virtually?</summary>
-        <p>Yes for most programs — DUI/RRP, anger management, parenting, and family enrichment can be completed entirely virtually. FVIP requires some in-person sessions per Georgia law. You'll need a webcam for identity verification.</p>
+        <summary>How long does the DUI Risk Reduction Program take?</summary>
+        <p>The program has two parts: an assessment and a 20-hour course taught over several sessions. Most students finish within about a week. Classes run on a set schedule, live online or in person — register online or call to see our next class dates.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I start class the same day I register?</summary>
+        <p>Not usually. You can register and complete your DDS paperwork online at any time, and then you&#x27;ll join our next scheduled class. Call us and we&#x27;ll help you find a date that fits your schedule.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I take classes online?</summary>
+        <p>Many of our classes are offered live online or in person at our Athens office. Online classes are taught live by an instructor — Georgia DDS does not accept certificates from self-paced online DUI courses. Some steps may need to be completed in person, so call us and we&#x27;ll tell you exactly what applies to you.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need a clinical evaluation?</summary>
+        <p>Georgia requires a clinical evaluation to reinstate your license after two or more DUI convictions within 10 years, and a court may order one in other cases. Our clinical evaluation is $150. If the evaluation recommends treatment, that treatment must be completed as well.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is Driver Improvement used for?</summary>
+        <p>Georgia&#x27;s 6-hour Driver Improvement course can satisfy a court order, remove up to 7 points from your driving record once every 5 years, meet certain license-reinstatement requirements, and may qualify you for an insurance discount.</p>
       </details>
       <details class="faq-item">
         <summary>How does Class Now, Pay Later work?</summary>
-        <p>We partner with Stripe to offer interest-free payment plans — split your tuition into 2 or 4 installments. No credit check required. You start the course as soon as your first payment clears.</p>
+        <p>Qualifying students can take class now and pay later through Stripe. Ask about it when you register or call us at 706.215.9661.</p>
       </details>
       <details class="faq-item">
         <summary>Do you send my certificate to the court?</summary>
-        <p>Yes — at no extra cost. As soon as you complete your program, we email and mail your certificate directly to your probation officer, court clerk, or attorney. You also receive your own copy.</p>
+        <p>When needed, yes — at no extra cost. When you complete your program, we can send your certificate to your probation officer, court clerk or attorney. You also receive your own copy.</p>
       </details>
       <details class="faq-item">
         <summary>What are your office hours?</summary>
-        <p>Our office at 110 Athens West Parkway, Ste.C is open Monday through Friday, 10am–6pm. Virtual classes run evenings and weekends as well. Call 706.215.9661 or email registration@wowathena.com anytime.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Are your instructors qualified?</summary>
-        <p>Every instructor is state-certified for the courses they teach. Our FVIP facilitators are licensed counselors. Our DUI Risk Reduction instructors hold GA DDS certification. Meet our team on the staff page.</p>
+        <p>Our office at 110 Athens West Parkway, Ste. C, Athens, GA 30606 is open Monday through Friday, 10am–6pm. We&#x27;re available in person or by phone at 706.215.9661, or email registration@wowathena.com.</p>
       </details>
     </div>
+    <p style="text-align:center;margin-top:2rem;">More answers in our <a href="/guides/" style="color:var(--purple);font-weight:700;">Georgia DUI &amp; court-class guides →</a></p>
   </div>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Athena state-approved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our DUI Alcohol or Drug Use Risk Reduction Program is certified by the Georgia Department of Driver Services under RRP Cert #10432, and our Driver Improvement course is state-approved as well. Our anger management classes and clinical evaluations are separate services — check your court order for exactly what you need, or call us and we'll help you read it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will DDS accept my DUI school certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Certificates of completion from our DDS-certified Risk Reduction Program (RRP Cert #10432) are accepted by the Georgia DDS for license reinstatement. If you're unsure what your court or DDS requires, call us at 706.215.9661 before you register."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the DUI Risk Reduction Program take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The program has two parts: an assessment and a 20-hour course taught over several sessions. Most students finish within about a week. Classes run on a set schedule, live online or in person — register online or call to see our next class dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start class the same day I register?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not usually. You can register and complete your DDS paperwork online at any time, and then you'll join our next scheduled class. Call us and we'll help you find a date that fits your schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I take classes online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many of our classes are offered live online or in person at our Athens office. Online classes are taught live by an instructor — Georgia DDS does not accept certificates from self-paced online DUI courses. Some steps may need to be completed in person, so call us and we'll tell you exactly what applies to you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a clinical evaluation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Georgia requires a clinical evaluation to reinstate your license after two or more DUI convictions within 10 years, and a court may order one in other cases. Our clinical evaluation is $150. If the evaluation recommends treatment, that treatment must be completed as well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Driver Improvement used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Georgia's 6-hour Driver Improvement course can satisfy a court order, remove up to 7 points from your driving record once every 5 years, meet certain license-reinstatement requirements, and may qualify you for an insurance discount."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Class Now, Pay Later work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Qualifying students can take class now and pay later through Stripe. Ask about it when you register or call us at 706.215.9661."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you send my certificate to the court?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When needed, yes — at no extra cost. When you complete your program, we can send your certificate to your probation officer, court clerk or attorney. You also receive your own copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your office hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our office at 110 Athens West Parkway, Ste. C, Athens, GA 30606 is open Monday through Friday, 10am–6pm. We're available in person or by phone at 706.215.9661, or email registration@wowathena.com."
+      }
+    }
+  ]
+}
+  </script>
 </section>
 
 <section class="cta-final" id="enroll">
   <div class="wrap">
     <span class="ey">Become Your Warrior of Wisdom</span>
-    <h2>Same-day enrollment. <em>Real human help.</em></h2>
-    <p>Call, text, or enroll online. We'll get you on the right course before close of business.</p>
-
-    <div class="selected-program" id="selectedProgram" role="status" aria-live="polite">
-      <span class="label">Program selected</span>
-      <span id="selectedProgramName"></span>
-    </div>
-
+    <h2>Call now or click to register. <em>Real human help.</em></h2>
+    <p>Sign up and fill out your DDS paperwork online, then choose a class that fits your schedule. We are available in person or by phone!</p>
     <a href="tel:7062159661" class="phone-big">📞 706.215.9661</a>
-    <a href="#courses" class="btn btn-gold">Browse Courses &amp; Enroll →</a>
-
-    <!-- The enrolment form appears here once ENROLL_FORM_URL is filled in
-         near the bottom of this file. Until then this stays hidden and
-         visitors enrol by phone or email. -->
-    <div class="enroll-embed" id="enrollEmbed">
-      <p class="enroll-or">Or fill in the enrollment form below and we'll call you back.</p>
-      <iframe id="enrollFrame" title="Enrollment form" loading="lazy" src="about:blank">
-        Loading the enrollment form…
-      </iframe>
-    </div>
+    <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-gold">Register for Our Next Class →</a>
     <div class="cta-final-info">
       <div><div class="label">Office Hours</div><div class="val">Mon–Fri · 10am – 6pm</div></div>
+      <div><div class="label">State Certification</div><div class="val">RRP Cert #10432</div></div>
       <div><div class="label">Email</div><div class="val">registration@wowathena.com</div></div>
       <div><div class="label">Address</div><div class="val">110 Athens West Parkway, Ste.C<br>Athens, GA 30606</div></div>
     </div>
@@ -656,26 +770,25 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 <footer class="foot">
   <div class="wrap">
     <div>
-      <div class="brand-foot">⚖️ ATHENA DUI ACADEMY<small>&amp; Family Enrichment</small></div>
-      <p>Georgia State-approved court-mandated courses delivered with dignity and care. Serving Northeast Georgia since 2018.</p>
+      <a href="/" class="brand-foot" aria-label="Athena DUI Academy &amp; Family Enrichment home"><img src="/img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" loading="lazy"></a>
+      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">RRP Cert #10432</span>) and Driver Improvement, plus clinical evaluations and anger management. Serving Northeast Georgia since 2018.</p>
     </div>
     <div>
       <h4>Programs</h4>
       <ul>
-        <li><a href="#courses">DUI / RRP Program</a></li>
-        <li><a href="#courses">DUI Education</a></li>
-        <li><a href="#courses">Anger Management</a></li>
-        <li><a href="#courses">Parenting Classes</a></li>
-        <li><a href="#courses">FVIP</a></li>
+        <li><a href="/dui-school-athens-ga/">DUI Risk Reduction Program</a></li>
+        <li><a href="/driver-improvement-athens-ga/">Driver Improvement</a></li>
+        <li><a href="/clinical-evaluation-athens-ga/">Clinical Evaluation</a></li>
+        <li><a href="/anger-management-athens-ga/">Anger Management</a></li>
       </ul>
     </div>
     <div>
       <h4>Resources</h4>
       <ul>
-        <li><a href="#mission">Mission</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#why">Why Athena</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/georgia-dui-school-guide/">Georgia DUI School Guide</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="/#faq">FAQ</a></li>
       </ul>
     </div>
     <div>
@@ -688,60 +801,12 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       </ul>
     </div>
   </div>
-  <div class="wrap foot-bottom">© 2026 Athena DUI Academy &amp; Family Enrichment · Georgia State-Approved Provider</div>
+  <div class="wrap foot-bottom">© 2026 Athena DUI Academy &amp; Family Enrichment · Georgia DDS-Approved DUI Risk Reduction Program · RRP Cert #10432</div>
 </footer>
 
 <a class="preview-pill" href="https://customershand.com" target="_blank" rel="noopener">
   ✨ Designed by <strong>Customers Hand</strong>
 </a>
 
-<script>
-/* ------------------------------------------------------------------
-   ENROLLMENT FORM
-   Paste the Google Form's share link between the quotes below, then the
-   form appears in the "Enroll" section automatically. Use the plain link
-   from Google Forms (Send > the chain-link tab), e.g.
-   "https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform"
-   Leave it empty and the page simply shows the phone number instead.
-------------------------------------------------------------------- */
-var ENROLL_FORM_URL = "";
-
-/* Optional: prefills the form's "Which program?" question with whichever
-   course the visitor clicked. To find this value, open the Google Form,
-   choose "Get pre-filled link", pick any program, submit, and copy the
-   entry.NNNNNNNNN part of the link Google gives you. */
-var ENROLL_FORM_COURSE_FIELD = "";
-
-(function () {
-  var embed  = document.getElementById('enrollEmbed');
-  var frame  = document.getElementById('enrollFrame');
-  var banner = document.getElementById('selectedProgram');
-  var name   = document.getElementById('selectedProgramName');
-
-  function formSrc(course) {
-    if (!ENROLL_FORM_URL) return '';
-    var url = ENROLL_FORM_URL.replace(/\?.*$/, '');
-    if (course && ENROLL_FORM_COURSE_FIELD) {
-      return url + '?usp=pp_url&' + encodeURIComponent(ENROLL_FORM_COURSE_FIELD) +
-             '=' + encodeURIComponent(course) + '&embedded=true';
-    }
-    return url + '?embedded=true';
-  }
-
-  if (ENROLL_FORM_URL) {
-    frame.src = formSrc('');
-    embed.classList.add('is-shown');
-  }
-
-  document.querySelectorAll('.enroll[data-course]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      var course = link.getAttribute('data-course');
-      name.textContent = course;
-      banner.classList.add('is-shown');
-      if (ENROLL_FORM_URL) frame.src = formSrc(course);
-    });
-  });
-})();
-</script>
 </body>
 </html>
