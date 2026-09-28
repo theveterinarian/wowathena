@@ -18,4 +18,7 @@ deployment:
     - /bin/rm -f              $DEPLOYPATH/img/.gitkeep
     - /bin/cp -R assets $DEPLOYPATH/
     - /bin/cp -R guides $DEPLOYPATH/
+    - /bin/cp -R dui-school-athens-ga $DEPLOYPATH/
+    - /bin/cp -R how-long-are-court-ordered-anger-management-classes $DEPLOYPATH/
     - /bin/cp -R how-much-is-dui-school-in-georgia $DEPLOYPATH/
+    - /bin/cp -R what-do-you-learn-in-anger-management $DEPLOYPATH/
