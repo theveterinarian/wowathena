@@ -6,12 +6,35 @@ One page, no build step: plain HTML + CSS, fonts from Google Fonts.
 ## Structure
 
 ```
-index.html            the entire site
-img/logo.png          nav logo      -- SUPPLY THIS FILE
-img/justice.png       hero artwork  -- SUPPLY THIS FILE
-.nojekyll             serve files as-is on GitHub Pages
-.github/workflows/deploy.yml   Pages deployment
+index.html                 homepage (hand-edited; styles inline)
+content/pages/*.html       source for every service page and guide
+tools/build.py             turns content/pages into /<slug>/index.html
+assets/site.css            styles for the generated pages
+<slug>/index.html          GENERATED pages, one folder each
+guides/index.html          GENERATED hub listing every guide
+sitemap.xml                GENERATED
+.cpanel.yml                GENERATED deploy manifest (what cPanel copies)
+404.html, robots.txt
+img/logo.png, img/justice.png   supplied by the owner
 ```
+
+## Editing pages
+
+Service pages and guides are written in `content/pages/<slug>.html`: a JSON
+`META` block (title, description, key takeaways, FAQs, sources, related pages)
+followed by the body HTML. After changing any of them, run:
+
+```
+python3 tools/build.py --strict
+```
+
+That rebuilds every page, the guides hub, `sitemap.xml` and `.cpanel.yml`.
+`--strict` fails on broken internal links. Commit the generated files along
+with the content. The script uses only the Python standard library.
+
+To add a page: create `content/pages/<new-slug>.html` (copy an existing one as
+a template), then run the build. It is added to the sitemap and the deploy
+manifest automatically.
 
 ## Deployment
 
@@ -35,33 +58,9 @@ server's TLS certificate is issued for (usually `serverNNN.<host>.com`), not
 `wow-athena.com`.
 
 Which files reach `public_html` is decided by `.cpanel.yml`, not by the
-workflow. Add a `/bin/cp` line there for any new file.
-
-### GitHub Pages
-
-Every push to the repository's **default branch** runs
-`.github/workflows/deploy.yml`, which publishes the repository root to GitHub
-Pages. Pushes to other branches run the workflow but skip the deploy job. The
-live URL is printed on the workflow run summary (and under **Settings → Pages**).
-
-Pages is enabled on this repo with **Settings → Pages → Build and deployment →
-Source: *GitHub Actions***. If Pages is ever turned off, the *Configure Pages*
-step fails with `Get Pages site failed … Not Found`; a workflow's `GITHUB_TOKEN`
-is not allowed to re-enable it, so that switch has to be set by hand.
-
-You can also trigger a deploy by hand from the **Actions** tab
-(*Deploy site to GitHub Pages* → *Run workflow*).
-
-## Custom domain on GitHub Pages (optional)
-
-The live site is served from cPanel at wow-athena.com, so this is only needed
-if you ever move hosting to GitHub Pages.
-
-1. Add a `CNAME` file at the repo root containing just `wowathena.com`.
-2. At the DNS host, point the apex `A` records at GitHub Pages
-   (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`)
-   and `www` at a `CNAME` of `<owner>.github.io`.
-3. In **Settings → Pages**, set the custom domain and tick *Enforce HTTPS*.
+workflow. `tools/build.py` regenerates it, so new pages are included
+automatically. Removing a file from the repo does not delete it from the
+server; add an `/bin/rm -f` task for that.
 
 ## Images
 
@@ -78,9 +77,13 @@ logo's alt text and the hero panel is empty.
 
 ## Notes
 
-- The page currently carries `<meta name="robots" content="noindex, nofollow">`.
-  Remove those two meta tags when the site should be indexed by search engines.
-- Course prices, the "4.9 · 1,200+ reviews" trust badge, and the testimonials
-  are placeholder copy — confirm them before the site goes public.
-- Enrollment buttons link to the `#enroll` section; wire them to the real
-  registration/Stripe flow when it exists.
+- Enroll and Register buttons go to the online registration system at
+  garrp2.adeincorp.com, where students sign up, pay and complete their DDS
+  paperwork.
+- The DUI Risk Reduction Program is DDS-certified as RRP Cert #10432. The
+  auditor requires that number on the site wherever state certification is
+  mentioned; `CERT` in `tools/build.py` controls it on generated pages.
+- The "4.9 · 1,200+ Reviews" trust badge and the three testimonials on the
+  homepage are placeholder copy and should be replaced with real ones or removed.
+- Driver Improvement and Anger Management prices are shown as "Call for
+  pricing" until the owner supplies them.
