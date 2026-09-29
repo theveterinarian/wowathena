@@ -201,7 +201,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 /* Section */
 .section { padding: clamp(4rem, 7vw, 6rem) 0; }
 .head { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
-.head .eyebrow { display: inline-block; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--purple); font-weight: 800; margin-bottom: 1rem; padding: .35rem .9rem; background: var(--purple-soft); border-radius: 999px; }
+.head .eyebrow { display: inline-block; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--purple-dk); font-weight: 800; margin-bottom: 1rem; padding: .38rem .9rem; background: var(--gold); border-radius: 6px; }
 .head h2 { margin-bottom: .75rem; }
 .head h2 em { background: linear-gradient(180deg, transparent 62%, var(--gold) 62%); padding: 0 6px; }
 .head p { font-size: 1.05rem; }
@@ -231,14 +231,14 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 .courses { background: var(--cream); }
 .course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .course {
-  background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.75rem;
-  position: relative; transition: all .25s; overflow: hidden;
+  background: #fff; border-radius: 14px; padding: 1.75rem;
+  position: relative; transition: transform .25s; overflow: hidden;
 }
 .course::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
   background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .3s;
 }
-.course:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--purple); }
+.course:hover { transform: translateY(-6px); }
 .course:hover::before { transform: scaleX(1); }
 .course-icon {
   width: 56px; height: 56px; border-radius: 14px; background: var(--purple-soft); color: var(--purple);
@@ -257,22 +257,20 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 .course .price small.call { font-size: .95rem; color: var(--purple); font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
 .course-badge { position: absolute; top: 1.4rem; right: 1.4rem; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--verdigris-dk); background: #e8f3eb; border: 1px solid rgba(45,90,61,.2); padding: .3rem .6rem; border-radius: 999px; }
 .cert { font-weight: 800; color: var(--purple); white-space: nowrap; }
-.why .cert, .cta-final .cert, .foot .cert { color: var(--gold); }
+.cta-final .cert, .foot .cert { color: var(--gold); }
+.why .cert { color: var(--purple); }
 
 /* Why us */
 .why { background: linear-gradient(135deg, var(--purple-dk) 0%, var(--purple) 100%); color: #fff; position: relative; overflow: hidden; }
 .why::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 90% 10%, rgba(244,200,66,.15), transparent 40%), radial-gradient(circle at 10% 90%, rgba(74,124,89,.18), transparent 40%); }
 .why .head h2 { color: #fff; }
-.why .head .eyebrow { background: rgba(244,200,66,.15); color: var(--gold); }
+.why .head .eyebrow { background: var(--gold); color: var(--purple-dk); }
 .why .head p { color: rgba(255,255,255,.85); }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; position: relative; }
-.why-card {
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 18px; padding: 1.75rem; backdrop-filter: blur(6px);
-}
+.why-card { background: #fff; border-radius: 14px; padding: 1.75rem; }
 .why-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--gold); color: var(--purple-dk); display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 1rem; }
-.why-card h3 { color: #fff; margin-bottom: .35rem; }
-.why-card p { color: rgba(255,255,255,.8); font-size: .94rem; margin: 0; }
+.why-card h3 { color: var(--ink); margin-bottom: .35rem; }
+.why-card p { color: var(--muted); font-size: .94rem; margin: 0; }
 
 /* How it works */
 .how { background: var(--bg); }
@@ -291,10 +289,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 /* Testimonials */
 .testimonials { background: var(--cream); }
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.testi {
-  background: #fff; padding: 2rem; border-radius: 18px;
-  border-left: 5px solid var(--gold); box-shadow: 0 8px 24px -12px rgba(0,0,0,.06);
-}
+.testi { background: var(--purple-soft); padding: 2rem; border-radius: 14px; }
 .testi .stars { color: var(--gold-dk); font-size: 1.05rem; letter-spacing: .12em; margin-bottom: 1rem; }
 .testi p { font-size: 1rem; color: var(--ink); margin: 0 0 1.25rem; line-height: 1.55; }
 .testi .author { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--purple); font-size: .92rem; margin: 0; }
@@ -302,8 +297,8 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 
 /* FAQ */
 .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: .25rem 1.5rem; transition: all .2s; }
-.faq-item[open] { border-color: var(--purple); box-shadow: var(--shadow); }
+.faq-item { background: var(--cream); border-radius: 12px; padding: .25rem 1.5rem; transition: background .2s; }
+.faq-item[open] { background: var(--purple-soft); }
 .faq-item summary {
   cursor: pointer; padding: 1.25rem 0; font-weight: 700;
   font-family: 'Space Grotesk', sans-serif; font-size: 1.08rem; color: var(--ink);
@@ -457,7 +452,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
   <div class="wrap">
     <div class="mission-visual"></div>
     <div class="mission-text">
-      <span class="eyebrow" style="display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple);font-weight:800;margin-bottom:1rem;padding:.35rem .9rem;background:var(--purple-soft);border-radius:999px;">Our Mission</span>
+      <span class="eyebrow" style="display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-dk);font-weight:800;margin-bottom:1rem;padding:.38rem .9rem;background:var(--gold);border-radius:6px;">Our Mission</span>
       <h2>Where new beginnings <em>bloom.</em></h2>
       <p>Athena Academy &amp; Family Enrichment is a place where new beginnings bloom. With a passion for empowering through education, we specialize in court-mandated and personal enrichment programs — delivered with dignity, structure, and real results.</p>
       <p class="warrior">"We Help You Become a Warrior of Wisdom."</p>
