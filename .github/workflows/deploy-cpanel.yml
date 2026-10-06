@@ -92,7 +92,13 @@ jobs:
 
           # Create the server-side clone the first time round. The repository is
           # public, so cPanel can clone it over HTTPS without any credentials.
-          existing=$(call VersionControl/retrieve 2>/dev/null || true)
+          # The listing runs git on the server, which cPanel limits to 5 seconds,
+          # so retry it a few times before concluding the clone is missing.
+          existing=""
+          for attempt in 1 2 3; do
+            existing=$(call VersionControl/retrieve 2>/dev/null) && break
+            existing=""; sleep 10
+          done
           if [ -z "$existing" ] || [ "$(jq -r --arg r "$CPANEL_REPO_ROOT" \
                '[.data[]? | select(.repository_root == $r)] | length' <<<"$existing")" = "0" ]; then
             echo "No clone exists at the configured repository root — creating it…"
@@ -100,12 +106,18 @@ jobs:
                    --data-urlencode "type=git" \
                    --data-urlencode "name=wowathena" \
                    --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
-                   --data-urlencode "source_repository={\"remote_name\":\"origin\",\"url\":\"${{ github.server_url }}/${{ github.repository }}.git\"}" >/dev/null; then
-              list_repositories
-              echo "::error::Could not create the clone. Either point CPANEL_REPO_ROOT at an empty or non-existent directory, or create the repository by hand in cPanel > Files > Git Version Control." >&2
-              exit 1
+                   --data-urlencode "source_repository={\"remote_name\":\"origin\",\"url\":\"${{ github.server_url }}/${{ github.repository }}.git\"}" >/dev/null 2>"$RUNNER_TEMP/create.err"; then
+              if grep -q "already under version control" "$RUNNER_TEMP/create.err"; then
+                echo "  the clone already exists; continuing."
+              else
+                cat "$RUNNER_TEMP/create.err" >&2
+                list_repositories
+                echo "::error::Could not create the clone. Either point CPANEL_REPO_ROOT at an empty or non-existent directory, or create the repository by hand in cPanel > Files > Git Version Control." >&2
+                exit 1
+              fi
+            else
+              echo "  created."
             fi
-            echo "  created."
           fi
 
           echo "Pulling branch $BRANCH from GitHub into the server-side clone…"
@@ -142,7 +154,7 @@ jobs:
           echo "Waiting for the deployment to finish…"
           for attempt in $(seq 1 30); do
             sleep 10
-            body=$(call VersionControlDeployment/retrieve)
+            body=$(call VersionControlDeployment/retrieve 2>/dev/null) || { echo "  could not read the deployment list (attempt $attempt/30); retrying…"; continue; }
             latest=$(jq -c --arg r "$CPANEL_REPO_ROOT" \
               '[.data[]? | select(.repository_root == $r)] | sort_by(.timestamps.queued // 0) | last // empty' \
               <<<"$body")
