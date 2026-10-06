@@ -71,6 +71,8 @@ change or cancel classes without touching the site. The sheet ID is
 
 `Program, Start date, End date, Days, Time, Format, Instructor, Status, Notes`
 
+A starter file with the first rows is in `content/schedule-seed.csv` (File → Import in Google Sheets).
+
 - **Program**: anything containing "Driver" goes under Driver Improvement; "RRP" or "DUI" under the Risk Reduction Program.
 - **Start date / End date**: `10/17/2026` style. Classes whose end date has passed are hidden automatically.
 - **Status**: `Open` (or blank), `Pending`, `Full` or `Cancelled`. A cancelled class stays listed, struck through, until its date passes; deleting the row removes it.
