@@ -62,6 +62,20 @@ workflow. `tools/build.py` regenerates it, so new pages are included
 automatically. Removing a file from the repo does not delete it from the
 server; add an `/bin/rm -f` task for that.
 
+## Class schedule
+
+`/schedule/` reads the class list live from a Google Sheet, so the owner can add,
+change or cancel classes without touching the site. The sheet ID is
+`SCHEDULE_SHEET_ID` in `tools/build.py`; the sheet must be shared as
+"Anyone with the link: Viewer". First row (column names) must be:
+
+`Program, Start date, End date, Days, Time, Format, Instructor, Status, Notes`
+
+- **Program**: anything containing "Driver" goes under Driver Improvement; "RRP" or "DUI" under the Risk Reduction Program.
+- **Start date / End date**: `10/17/2026` style. Classes whose end date has passed are hidden automatically.
+- **Status**: `Open` (or blank), `Pending`, `Full` or `Cancelled`. A cancelled class stays listed, struck through, until its date passes; deleting the row removes it.
+- Driver Improvement rows, and any row whose Notes say "call", get a "Call to register" button instead of the online registration link.
+
 ## Images
 
 `index.html` references exactly two image files, and neither is in this repo:

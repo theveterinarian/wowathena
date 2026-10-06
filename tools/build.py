@@ -12,6 +12,7 @@ Each content file starts with a META block of JSON, followed by the body HTML:
 Running this script (python3 tools/build.py) writes:
   <slug>/index.html   for every content file
   guides/index.html   the hub page listing every guide
+  schedule/index.html the class schedule (reads a Google Sheet live, see SCHEDULE_SHEET_ID)
   sitemap.xml         every public page
   .cpanel.yml         the deploy manifest, so no page is left off the server
 
@@ -147,6 +148,7 @@ def chrome_top(active=None):
     <div class="nav-links">
       <a href="/#courses">Courses</a>
       <a href="/dui-school-athens-ga/"{cur("dui")}>DUI School</a>
+      <a href="/schedule/"{cur("schedule")}>Schedule</a>
       <a href="/guides/"{cur("guides")}>Guides</a>
       <a href="/#faq">FAQ</a>
     </div>
@@ -186,6 +188,7 @@ def chrome_bottom():
     <div>
       <h4>Resources</h4>
       <ul>
+        <li><a href="/schedule/">Class schedule</a></li>
         <li><a href="/guides/">All guides</a></li>
         <li><a href="/georgia-dui-school-guide/">Georgia DUI School Guide</a></li>
         <li><a href="/get-license-back-after-dui-georgia/">License Reinstatement</a></li>
@@ -408,9 +411,192 @@ def render_hub(pages):
 '''
 
 
+# The class schedule is read live from a Google Sheet so the owner can add,
+# change or cancel classes without touching the site. The sheet must be shared
+# as "Anyone with the link: Viewer". Columns (first row, in this order):
+# Program, Start date, End date, Days, Time, Format, Instructor, Status, Notes
+SCHEDULE_SHEET_ID = "1TLTsAPf_uEppLAIi4kTM3cXpj9qRWemixbAm-4uIN-E"
+
+
+def render_schedule():
+    url = f"{SITE}/schedule/"
+    title = "Class Schedule | DUI School & Driver Improvement, Athens GA"
+    desc = ("Upcoming DUI Risk Reduction (RRP) and Driver Improvement class dates at Athena DUI Academy "
+            "in Athens, Georgia. Register online for RRP or call 706.215.9661.")
+    schema = [breadcrumb_schema([("Home", f"{SITE}/"), ("Class schedule", url)]),
+              {"@context": "https://schema.org", "@type": "WebPage", "name": "Class schedule", "url": url,
+               "description": desc, "publisher": ORG_REF}]
+    csv_url = f"https://docs.google.com/spreadsheets/d/{SCHEDULE_SHEET_ID}/gviz/tq?tqx=out:csv&headers=1"
+    return f"""{head(title, desc, url, "website", schema)}
+<body>
+{chrome_top("schedule")}
+<header class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Class schedule</nav>
+    <span class="eyebrow">Athens, Georgia</span>
+    <h1>Class schedule</h1>
+    <p class="dek">Upcoming DUI Risk Reduction Program (<span class="cert">{CERT}</span>) and Driver Improvement classes. Register online for the Risk Reduction Program, or call <strong>{PHONE_DISPLAY}</strong>. You must call to register for Driver Improvement.</p>
+    <div class="head-ctas"><a class="btn btn-primary" href="{REGISTER}" target="_blank" rel="noopener">Register for RRP online</a><a class="btn btn-ghost" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a></div>
+  </div>
+</header>
+<main class="wrap schedule" id="schedule" data-src="{csv_url}">
+  <p class="sched-status" id="sched-status" role="status">Loading the current schedule…</p>
+  <section class="sched-program" id="prog-rrp">
+    <h2>DUI Risk Reduction Program (DUI school)</h2>
+    <p class="sched-lead">The 20-hour state-approved course, $360. Weekend classes run Friday evening through Sunday or Saturday through Monday; weeknight classes run Monday through Friday evenings. <a href="/dui-school-athens-ga/">About the program</a>.</p>
+    <div class="sched-rows" data-program="rrp"></div>
+  </section>
+  <section class="sched-program" id="prog-di">
+    <h2>Driver Improvement (6-hour defensive driving)</h2>
+    <p class="sched-lead">The DDS-approved 6-hour course, $95, taught in person at our Athens office. One Saturday, or two or three evenings. <strong>Call {PHONE_DISPLAY} to register for Driver Improvement.</strong> <a href="/driver-improvement-athens-ga/">About the course</a>.</p>
+    <div class="sched-rows" data-program="di"></div>
+  </section>
+  <section class="sched-program" id="prog-other" hidden>
+    <h2>Other classes</h2>
+    <div class="sched-rows" data-program="other"></div>
+  </section>
+  <div class="callout note sched-note">
+    <p><strong>Good to know.</strong> Classes need a minimum number of paid registrations, so a class can be rescheduled or cancelled; we will contact everyone registered. Arrive on time: DDS rules let the school turn away late students. Clinical evaluations and anger management classes are scheduled by appointment, so call us for those.</p>
+  </div>
+  <noscript><p class="sched-status">Please call {PHONE_DISPLAY} for the current class schedule.</p></noscript>
+</main>
+<script>
+(function () {{
+  var root = document.getElementById('schedule');
+  var status = document.getElementById('sched-status');
+  var REGISTER = {json.dumps(REGISTER)};
+  var TEL = 'tel:{PHONE_TEL}';
+  var PHONE = '{PHONE_DISPLAY}';
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  function parseCSV(text) {{
+    var rows = [], row = [], field = '', q = false;
+    for (var i = 0; i < text.length; i++) {{
+      var c = text[i];
+      if (q) {{
+        if (c === '"') {{ if (text[i + 1] === '"') {{ field += '"'; i++; }} else q = false; }}
+        else field += c;
+      }} else if (c === '"') q = true;
+      else if (c === ',') {{ row.push(field); field = ''; }}
+      else if (c === '\\n' || c === '\\r') {{
+        if (c === '\\r' && text[i + 1] === '\\n') i++;
+        row.push(field); rows.push(row); row = []; field = '';
+      }} else field += c;
+    }}
+    if (field !== '' || row.length) {{ row.push(field); rows.push(row); }}
+    return rows;
+  }}
+
+  function parseDate(s) {{
+    s = (s || '').trim();
+    if (!s) return null;
+    var m = s.match(/^(\\d{{1,2}})[\\/\\-.](\\d{{1,2}})[\\/\\-.](\\d{{2,4}})$/);
+    if (m) {{ var y = +m[3]; if (y < 100) y += 2000; return new Date(y, +m[1] - 1, +m[2]); }}
+    m = s.match(/^(\\d{{4}})-(\\d{{1,2}})-(\\d{{1,2}})/);
+    if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
+    var d = new Date(s);
+    return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }}
+
+  function fmt(d) {{ return MONTHS[d.getMonth()].slice(0, 3) + ' ' + d.getDate(); }}
+  function dateRange(a, b) {{
+    if (!b || a.getTime() === b.getTime()) return fmt(a);
+    if (a.getMonth() === b.getMonth()) return MONTHS[a.getMonth()].slice(0, 3) + ' ' + a.getDate() + '–' + b.getDate();
+    return fmt(a) + ' – ' + fmt(b);
+  }}
+  function esc(s) {{ return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {{ return {{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}}[c]; }}); }}
+
+  function programKey(name) {{
+    var n = (name || '').toLowerCase();
+    if (/driver|defensive|\\bdi\\b/.test(n)) return 'di';
+    if (/rrp|risk|dui/.test(n)) return 'rrp';
+    return 'other';
+  }}
+  function statusKey(s) {{
+    s = (s || '').toLowerCase().trim();
+    if (!s || /open|avail|yes/.test(s)) return 'open';
+    if (/cancel/.test(s)) return 'cancelled';
+    if (/full|closed|sold/.test(s)) return 'full';
+    if (/pend|tent|tba/.test(s)) return 'pending';
+    return 'open';
+  }}
+  var LABEL = {{open: 'Open', cancelled: 'Cancelled', full: 'Full', pending: 'Pending'}};
+
+  function render(rows) {{
+    var header = rows.shift().map(function (h) {{ return h.toLowerCase().trim(); }});
+    function col(r, name) {{ var i = header.indexOf(name); return i < 0 ? '' : (r[i] || '').trim(); }}
+    var today = new Date(); today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    var groups = {{rrp: [], di: [], other: []}};
+    rows.forEach(function (r) {{
+      if (!r.join('').trim()) return;
+      var start = parseDate(col(r, 'start date')), end = parseDate(col(r, 'end date')) || start;
+      if (!start) return;
+      if (end < today) return;
+      groups[programKey(col(r, 'program'))].push({{
+        program: col(r, 'program'), start: start, end: end, days: col(r, 'days'), time: col(r, 'time'),
+        format: col(r, 'format'), instructor: col(r, 'instructor'), status: statusKey(col(r, 'status')),
+        notes: col(r, 'notes')
+      }});
+    }});
+    var total = 0;
+    Object.keys(groups).forEach(function (k) {{
+      var list = groups[k].sort(function (a, b) {{ return a.start - b.start; }});
+      var box = root.querySelector('[data-program="' + k + '"]');
+      var section = box.parentNode;
+      if (k === 'other') section.hidden = !list.length;
+      if (!list.length) {{
+        box.innerHTML = '<p class="sched-empty">No upcoming classes are posted yet. Call ' + PHONE + ' and we will put you in the next one.</p>';
+        return;
+      }}
+      total += list.length;
+      var html = '', month = '';
+      list.forEach(function (c) {{
+        var m = MONTHS[c.start.getMonth()] + ' ' + c.start.getFullYear();
+        if (m !== month) {{ html += '<h3 class="sched-month">' + m + '</h3>'; month = m; }}
+        var action = c.status === 'cancelled' ? '' : c.status === 'full'
+          ? '<a class="btn btn-ghost" href="' + TEL + '">Call for the next class</a>'
+          : k === 'di' || /call/i.test(c.notes)
+            ? '<a class="btn btn-primary" href="' + TEL + '">Call to register</a>'
+            : '<a class="btn btn-primary" href="' + REGISTER + '" target="_blank" rel="noopener">Register</a>';
+        html += '<div class="sched-row is-' + c.status + '">' +
+          '<div class="sched-when"><span class="sched-date">' + esc(dateRange(c.start, c.end)) + '</span>' +
+          (c.days ? '<span class="sched-days">' + esc(c.days) + '</span>' : '') + '</div>' +
+          '<div class="sched-info">' +
+          (c.time ? '<div><span class="k">Time</span>' + esc(c.time) + '</div>' : '') +
+          (c.format ? '<div><span class="k">Format</span>' + esc(c.format) + '</div>' : '') +
+          (c.instructor ? '<div><span class="k">Instructor</span>' + esc(c.instructor) + '</div>' : '') +
+          (c.notes && !/^call to register$/i.test(c.notes) ? '<div><span class="k">Note</span>' + esc(c.notes) + '</div>' : '') +
+          '</div>' +
+          '<div class="sched-act"><span class="badge badge-' + c.status + '">' + LABEL[c.status] + '</span>' + action + '</div>' +
+          '</div>';
+      }});
+      box.innerHTML = html;
+    }});
+    status.textContent = total ? 'Showing ' + total + ' upcoming class' + (total === 1 ? '' : 'es') + '. Dates can change, so confirm when you register.' : 'No classes are posted right now. Call ' + PHONE + '.';
+  }}
+
+  function fail() {{
+    status.innerHTML = 'We could not load the schedule just now. Please call <a href="' + TEL + '">' + PHONE + '</a> for class dates, or try again in a minute.';
+    status.className += ' is-error';
+  }}
+
+  try {{
+    fetch(root.getAttribute('data-src') + '&_=' + Date.now(), {{cache: 'no-store'}})
+      .then(function (r) {{ if (!r.ok) throw new Error(r.status); return r.text(); }})
+      .then(function (t) {{ var rows = parseCSV(t); if (rows.length < 2) throw new Error('empty'); render(rows); }})
+      .catch(fail);
+  }} catch (e) {{ fail(); }}
+}})();
+</script>
+{chrome_bottom()}
+</body>
+</html>
+"""
+
+
 def write_sitemap(pages):
     today = dt.date.today().isoformat()
-    urls = [(f"{SITE}/", today, "1.0"), (f"{SITE}/guides/", today, "0.8")]
+    urls = [(f"{SITE}/", today, "1.0"), (f"{SITE}/schedule/", today, "0.9"), (f"{SITE}/guides/", today, "0.8")]
     for p in sorted(pages, key=lambda p: (p["type"] != "service", p["type"] != "pillar", p["slug"])):
         prio = {"service": "0.9", "pillar": "0.8"}.get(p["type"], "0.7")
         urls.append((f"{SITE}/{p['slug']}/", p["updated"], prio))
@@ -421,7 +607,7 @@ def write_sitemap(pages):
 
 
 def write_cpanel(pages):
-    dirs = ["assets", "guides"] + sorted(p["slug"] for p in pages)
+    dirs = ["assets", "guides", "schedule"] + sorted(p["slug"] for p in pages)
     copies = "\n".join(f"    - /bin/cp -R {d} $DEPLOYPATH/" for d in dirs)
     (ROOT / ".cpanel.yml").write_text(f'''---
 # cPanel "Git Version Control" deployment. GENERATED by tools/build.py:
@@ -471,6 +657,8 @@ def main():
         (out / "index.html").write_text(render_page(p, by_slug), encoding="utf-8")
     (ROOT / "guides").mkdir(exist_ok=True)
     (ROOT / "guides" / "index.html").write_text(render_hub(pages), encoding="utf-8")
+    (ROOT / "schedule").mkdir(exist_ok=True)
+    (ROOT / "schedule" / "index.html").write_text(render_schedule(), encoding="utf-8")
     write_sitemap(pages)
     write_cpanel(pages)
     print(f"built {len(pages)} pages + guides hub, sitemap.xml, .cpanel.yml")

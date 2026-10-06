@@ -18,6 +18,7 @@ deployment:
     - /bin/rm -f              $DEPLOYPATH/img/.gitkeep
     - /bin/cp -R assets $DEPLOYPATH/
     - /bin/cp -R guides $DEPLOYPATH/
+    - /bin/cp -R schedule $DEPLOYPATH/
     - /bin/cp -R anger-management-athens-ga $DEPLOYPATH/
     - /bin/cp -R can-you-take-dui-school-online-in-georgia $DEPLOYPATH/
     - /bin/cp -R clinical-evaluation-athens-ga $DEPLOYPATH/
