@@ -186,7 +186,7 @@
 <nav class="nav">
   <div class="wrap">
     <a href="/" class="brand" aria-label="Athena DUI Academy &amp; Family Enrichment home"><img src="/img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" class="brand-logo" width="222" height="60"></a>
-    <div class="nav-links">
+    <div class="nav-links" id="site-menu">
       <a href="/#courses">Courses</a>
       <a href="/dui-school-athens-ga/">DUI School</a>
       <a href="/schedule/">Schedule</a>
@@ -194,6 +194,7 @@
       <a href="/#faq">FAQ</a>
     </div>
     <div class="nav-cta">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">&#9776;</button>
       <a href="tel:7062159661" class="num">706.215.9661</a>
       <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-primary">Enroll Now</a>
     </div>
@@ -698,5 +699,18 @@
   </div>
   <div class="wrap foot-bottom">© 2026 Athena DUI Academy &amp; Family Enrichment · Georgia DDS-Approved DUI Risk Reduction Program · RRP Cert #10432</div>
 </footer>
+<script>
+(function () {
+  var nav = document.querySelector('.nav'), btn = document.querySelector('.nav-toggle');
+  if (!nav || !btn) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    btn.innerHTML = open ? '&#10005;' : '&#9776;';
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.innerHTML = '&#9776;'; }); });
+})();
+</script>
 </body>
 </html>

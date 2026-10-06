@@ -145,7 +145,7 @@ def chrome_top(active=None):
 <nav class="nav">
   <div class="wrap">
     <a href="/" class="brand" aria-label="{esc(ORG_NAME)} home"><img src="/img/logo.png" alt="{esc(ORG_NAME)}" class="brand-logo" width="222" height="60"></a>
-    <div class="nav-links">
+    <div class="nav-links" id="site-menu">
       <a href="/#courses">Courses</a>
       <a href="/dui-school-athens-ga/"{cur("dui")}>DUI School</a>
       <a href="/schedule/"{cur("schedule")}>Schedule</a>
@@ -153,6 +153,7 @@ def chrome_top(active=None):
       <a href="/#faq">FAQ</a>
     </div>
     <div class="nav-cta">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">&#9776;</button>
       <a href="tel:{PHONE_TEL}" class="num">{PHONE_DISPLAY}</a>
       <a href="{REGISTER}" target="_blank" rel="noopener" class="btn btn-primary">Enroll Now</a>
     </div>
@@ -206,7 +207,20 @@ def chrome_bottom():
     </div>
   </div>
   <div class="wrap foot-bottom">© {year} {esc(ORG_NAME)} · Georgia DDS-Approved DUI Risk Reduction Program · {CERT}</div>
-</footer>'''
+</footer>
+<script>
+(function () {{
+  var nav = document.querySelector('.nav'), btn = document.querySelector('.nav-toggle');
+  if (!nav || !btn) return;
+  btn.addEventListener('click', function () {{
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    btn.innerHTML = open ? '&#10005;' : '&#9776;';
+  }});
+  nav.querySelectorAll('.nav-links a').forEach(function (a) {{ a.addEventListener('click', function () {{ nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.innerHTML = '&#9776;'; }}); }});
+}})();
+</script>'''
 
 
 def head(title, description, canonical, og_type, schema):
