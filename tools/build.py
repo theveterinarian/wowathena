@@ -580,22 +580,6 @@ def render_schedule():
     status.className += ' is-error';
   }}
 
-  // /schedule/?demo=1 shows built-in sample rows so the layout can be previewed before the sheet is filled in.
-  var DEMO = 'Program,Start date,End date,Days,Time,Format,Instructor,Status,Notes\\n' +
-    'DUI Risk Reduction (RRP),10/9/2026,10/11/2026,Fri-Sun (Weekend),6:00 pm Fri,In person,Mike Oakes,Open,\\n' +
-    'DUI Risk Reduction (RRP),10/19/2026,10/23/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person,Jimmy Wood,Open,\\n' +
-    'DUI Risk Reduction (RRP),10/17/2026,10/19/2026,Sat-Mon (Weekend),9:00 am,In person,Mike Oakes,Cancelled,Rescheduled - call us\\n' +
-    'DUI Risk Reduction (RRP),10/23/2026,10/25/2026,Fri-Sun (Weekend),9:00 am,In person,,Pending,Starts on Friday\\n' +
-    'DUI Risk Reduction (RRP),11/6/2026,11/8/2026,Fri-Sun (Weekend),6:00 pm Fri,In person,Mike Oakes,Full,\\n' +
-    'Driver Improvement,10/10/2026,10/10/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register\\n' +
-    'Driver Improvement,10/20/2026,10/21/2026,Tue & Wed,6:00 pm - 9:00 pm,In person,,Open,Call to register\\n' +
-    'Driver Improvement,10/31/2026,10/31/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register\\n';
-  if (/[?&]demo=1/.test(location.search)) {{
-    render(parseCSV(DEMO));
-    status.textContent = 'SAMPLE SCHEDULE for preview only. These dates are not real. ' + status.textContent;
-    return;
-  }}
-
   try {{
     fetch(root.getAttribute('data-src') + '&_=' + Date.now(), {{cache: 'no-store'}})
       .then(function (r) {{ if (!r.ok) throw new Error(r.status); return r.text(); }})
