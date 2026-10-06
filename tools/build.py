@@ -415,7 +415,7 @@ def render_hub(pages):
 # change or cancel classes without touching the site. The sheet must be shared
 # as "Anyone with the link: Viewer". Columns (first row, in this order):
 # Program, Start date, End date, Days, Time, Format, Instructor, Status, Notes
-SCHEDULE_SHEET_ID = "1TLTsAPf_uEppLAIi4kTM3cXpj9qRWemixbAm-4uIN-E"
+SCHEDULE_SHEET_ID = "1U61fjwz8i6nx9GkNcC-wxEgjJyk8M7ngWe5MeJYt2t0"
 
 
 def render_schedule():
@@ -583,7 +583,7 @@ def render_schedule():
   try {{
     fetch(root.getAttribute('data-src') + '&_=' + Date.now(), {{cache: 'no-store'}})
       .then(function (r) {{ if (!r.ok) throw new Error(r.status); return r.text(); }})
-      .then(function (t) {{ var rows = parseCSV(t); if (rows.length < 2) throw new Error('empty'); render(rows); }})
+      .then(function (t) {{ var rows = parseCSV(t); if (!rows.length || !rows[0].join('').trim()) rows = [['program']]; render(rows); }})
       .catch(fail);
   }} catch (e) {{ fail(); }}
 }})();
