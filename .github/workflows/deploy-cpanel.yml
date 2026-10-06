@@ -109,9 +109,25 @@ jobs:
           fi
 
           echo "Pulling branch $BRANCH from GitHub into the server-side clone…"
-          if ! call VersionControl/update \
-                 --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
-                 --data-urlencode "branch=$BRANCH" >/dev/null; then
+          # cPanel gives its git subprocess only 5 seconds, so a slow fetch from
+          # GitHub can time out. Each attempt fetches more, so retry a few times.
+          pulled=0
+          for attempt in 1 2 3 4; do
+            if call VersionControl/update \
+                   --data-urlencode "repository_root=$CPANEL_REPO_ROOT" \
+                   --data-urlencode "branch=$BRANCH" >/dev/null 2>"$RUNNER_TEMP/pull.err"; then
+              pulled=1; break
+            fi
+            if grep -q "timeout" "$RUNNER_TEMP/pull.err"; then
+              echo "  attempt $attempt timed out on the server; retrying in 15s…"
+              sleep 15
+            else
+              cat "$RUNNER_TEMP/pull.err" >&2
+              break
+            fi
+          done
+          if [ "$pulled" != 1 ]; then
+            cat "$RUNNER_TEMP/pull.err" >&2
             list_repositories
             echo "::error::Set the CPANEL_REPO_ROOT secret to one of the paths listed above." >&2
             exit 1
