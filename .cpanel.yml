@@ -25,6 +25,7 @@ deployment:
     - /bin/cp -R driver-improvement-athens-ga $DEPLOYPATH/
     - /bin/cp -R dui-classes-before-court-date-georgia $DEPLOYPATH/
     - /bin/cp -R dui-school-athens-ga $DEPLOYPATH/
+    - /bin/cp -R family-enrichment-athens-ga $DEPLOYPATH/
     - /bin/cp -R georgia-dui-school-guide $DEPLOYPATH/
     - /bin/cp -R georgia-dui-under-21 $DEPLOYPATH/
     - /bin/cp -R georgia-limited-driving-permit-dui $DEPLOYPATH/

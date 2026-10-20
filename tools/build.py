@@ -61,6 +61,11 @@ CTAS = {
         "text": "Athena offers anger management classes for court, probation or personal goals, live online or in person in Athens.",
         "page": "/anger-management-athens-ga/",
     },
+    "family": {
+        "title": "Interested in family enrichment classes?",
+        "text": "Athena offers family enrichment classes for parents, couples and families, live online or in person in Athens. Call to find the right class.",
+        "page": "/family-enrichment-athens-ga/",
+    },
 }
 
 STRICT = "--strict" in sys.argv
@@ -175,7 +180,7 @@ def chrome_bottom():
   <div class="wrap cols">
     <div>
       <a href="/" class="brand-foot" aria-label="{esc(ORG_NAME)} home"><img src="/img/logo.png" alt="{esc(ORG_NAME)}" loading="lazy"></a>
-      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">{CERT}</span>) and Driver Improvement, plus clinical evaluations and anger management.</p>
+      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">{CERT}</span>) and Driver Improvement, plus clinical evaluations, anger management and family enrichment classes.</p>
     </div>
     <div>
       <h4>Programs</h4>
@@ -184,6 +189,7 @@ def chrome_bottom():
         <li><a href="/driver-improvement-athens-ga/">Driver Improvement</a></li>
         <li><a href="/clinical-evaluation-athens-ga/">Clinical Evaluation</a></li>
         <li><a href="/anger-management-athens-ga/">Anger Management</a></li>
+        <li><a href="/family-enrichment-athens-ga/">Family Enrichment</a></li>
       </ul>
     </div>
     <div>
@@ -465,6 +471,11 @@ def render_schedule():
     <p class="sched-lead">The DDS-approved 6-hour course, $95, taught in person at our Athens office. One Saturday, or two or three evenings. <strong>Call {PHONE_DISPLAY} to register for Driver Improvement.</strong> <a href="/driver-improvement-athens-ga/">About the course</a>.</p>
     <div class="sched-rows" data-program="di"></div>
   </section>
+  <section class="sched-program" id="prog-family">
+    <h2>Family Enrichment classes</h2>
+    <p class="sched-lead">Communication, parenting and relationship skills classes for personal growth or when a court or agency asks for a family class. Live online or in person. <a href="/family-enrichment-athens-ga/">About the classes</a>.</p>
+    <div class="sched-rows" data-program="family"></div>
+  </section>
   <section class="sched-program" id="prog-other" hidden>
     <h2>Other classes</h2>
     <div class="sched-rows" data-program="other"></div>
@@ -540,7 +551,7 @@ def render_schedule():
     var header = rows.shift().map(function (h) {{ return h.toLowerCase().trim(); }});
     function col(r, name) {{ var i = header.indexOf(name); return i < 0 ? '' : (r[i] || '').trim(); }}
     var today = new Date(); today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    var groups = {{rrp: [], di: [], other: []}};
+    var groups = {{rrp: [], di: [], family: [], other: []}};
     rows.forEach(function (r) {{
       if (!r.join('').trim()) return;
       var start = parseDate(col(r, 'start date')), end = parseDate(col(r, 'end date')) || start;
@@ -663,7 +674,7 @@ deployment:
 
 def check_internal_links(pages, by_slug):
     """Fail if any body links to an internal page that doesn't exist."""
-    known = set(by_slug) | {"guides", ""}
+    known = set(by_slug) | {"guides", "schedule", ""}
     bad = []
     for p in pages:
         for target in re.findall(r'href="/([^"#?]*)', p["body"]):

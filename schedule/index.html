@@ -100,6 +100,11 @@
     <p class="sched-lead">The DDS-approved 6-hour course, $95, taught in person at our Athens office. One Saturday, or two or three evenings. <strong>Call 706.215.9661 to register for Driver Improvement.</strong> <a href="/driver-improvement-athens-ga/">About the course</a>.</p>
     <div class="sched-rows" data-program="di"></div>
   </section>
+  <section class="sched-program" id="prog-family">
+    <h2>Family Enrichment classes</h2>
+    <p class="sched-lead">Communication, parenting and relationship skills classes for personal growth or when a court or agency asks for a family class. Live online or in person. <a href="/family-enrichment-athens-ga/">About the classes</a>.</p>
+    <div class="sched-rows" data-program="family"></div>
+  </section>
   <section class="sched-program" id="prog-other" hidden>
     <h2>Other classes</h2>
     <div class="sched-rows" data-program="other"></div>
@@ -175,7 +180,7 @@
     var header = rows.shift().map(function (h) { return h.toLowerCase().trim(); });
     function col(r, name) { var i = header.indexOf(name); return i < 0 ? '' : (r[i] || '').trim(); }
     var today = new Date(); today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    var groups = {rrp: [], di: [], other: []};
+    var groups = {rrp: [], di: [], family: [], other: []};
     rows.forEach(function (r) {
       if (!r.join('').trim()) return;
       var start = parseDate(col(r, 'start date')), end = parseDate(col(r, 'end date')) || start;
@@ -265,7 +270,7 @@
   <div class="wrap cols">
     <div>
       <a href="/" class="brand-foot" aria-label="Athena DUI Academy &amp; Family Enrichment home"><img src="/img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" loading="lazy"></a>
-      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">RRP Cert #10432</span>) and Driver Improvement, plus clinical evaluations and anger management.</p>
+      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">RRP Cert #10432</span>) and Driver Improvement, plus clinical evaluations, anger management and family enrichment classes.</p>
     </div>
     <div>
       <h4>Programs</h4>
@@ -274,6 +279,7 @@
         <li><a href="/driver-improvement-athens-ga/">Driver Improvement</a></li>
         <li><a href="/clinical-evaluation-athens-ga/">Clinical Evaluation</a></li>
         <li><a href="/anger-management-athens-ga/">Anger Management</a></li>
+        <li><a href="/family-enrichment-athens-ga/">Family Enrichment</a></li>
       </ul>
     </div>
     <div>
