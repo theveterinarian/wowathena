@@ -116,8 +116,8 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 .brand { display: flex; align-items: center; }
 .brand-logo { height: 60px; width: auto; display: block; }
 
-.nav-links { display: flex; gap: 1.6rem; }
-.nav-links a { font-size: .92rem; font-weight: 600; color: var(--ink); transition: color .15s; }
+.nav-links { display: flex; gap: 1.25rem; }
+.nav-links a { font-size: .9rem; font-weight: 600; color: var(--ink); transition: color .15s; white-space: nowrap; }
 .nav-links a:hover { color: var(--purple); }
 .nav-phone { display: flex; align-items: center; gap: .85rem; }
 .nav-toggle { display: none; background: none; border: 2px solid var(--purple); color: var(--purple); border-radius: 8px; font-size: 1.25rem; line-height: 1; padding: .4rem .55rem; cursor: pointer; }
@@ -362,6 +362,9 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 }
 .preview-pill strong { color: var(--purple); font-weight: 700; }
 
+@media (max-width: 1240px) {
+  .nav-phone .num { display: none; }
+}
 @media (max-width: 900px) {
   .hero .wrap, .mission .wrap { grid-template-columns: 1fr; gap: 3rem; }
   .course-grid, .why-grid, .testi-grid { grid-template-columns: 1fr; }
@@ -386,6 +389,19 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
   .topbar { font-size: .78rem; }
   .topbar .sep { display: block; margin: 0; height: 0; }
 }
+/* Family Enrichment banner */
+.fe-banner { background: var(--purple-dk); color: #fff; padding: clamp(2.5rem, 5vw, 3.5rem) 0; border-top: 4px solid var(--gold); }
+.fe-banner .wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.fe-banner-text { flex: 1 1 480px; }
+.fe-banner .eyebrow { display: inline-block; background: var(--gold); color: var(--purple-dk); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 800; padding: .35rem .8rem; border-radius: 6px; }
+.fe-banner h2 { color: #fff; margin: .5rem 0 .75rem; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.fe-banner h2 em { font-style: normal; color: var(--gold); background: none; padding: 0; }
+.fe-banner p { color: rgba(255,255,255,.9); font-size: 1.05rem; line-height: 1.6; margin: 0; max-width: 640px; }
+.fe-banner p strong { color: #fff; }
+.fe-banner-cta { display: flex; flex-direction: column; gap: .75rem; flex: 0 0 auto; }
+.btn-ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.btn-ghost-light:hover { background: #fff; color: var(--purple-dk); }
+@media (max-width: 700px) { .fe-banner-cta { flex-direction: row; flex-wrap: wrap; width: 100%; } .fe-banner-cta .btn { flex: 1 1 auto; justify-content: center; } }
 </style>
 </head>
 <body>
@@ -403,9 +419,9 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     </a>
     <div class="nav-links" id="site-menu">
       <a href="#courses">Courses</a>
-      <a href="#why">Why Athena</a>
       <a href="#how">How It Works</a>
       <a href="/schedule/">Schedule</a>
+      <a href="/family-enrichment-athens-ga/">Family Enrichment</a>
       <a href="/guides/">Guides</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -429,6 +445,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       <div class="hero-ctas">
         <a href="#courses" class="btn btn-gold">Find Your Class →</a>
         <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
+        <a href="/family-enrichment-athens-ga/" class="btn btn-ghost">Family Enrichment Classes</a>
       </div>
       <div class="hero-meta">
         <span>Register online or by phone</span>
@@ -525,6 +542,20 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
         <p>Communication, parenting and relationship classes, plus new classes coming soon: Women's Gun Safety, an AHA CPR course, Interactive Date Night, and a meeting venue for groups of up to 15. In person or live virtual in Athens.</p>
         <div class="meta"><span class="price"><small class="call">Prices coming soon</small></span><span class="actions"><a href="/family-enrichment-athens-ga/" class="details">Details</a><a href="/family-enrichment-athens-ga/#upcoming-classes" class="enroll">See what's coming →</a></span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="fe-banner" id="family-enrichment">
+  <div class="wrap">
+    <div class="fe-banner-text">
+      <span class="eyebrow">Family Enrichment</span>
+      <h2>More than DUI school. <em>Classes for the whole family.</em></h2>
+      <p>Communication, parenting and relationship classes are available now. Coming soon: <strong>Women's Gun Safety</strong>, an <strong>AHA CPR Course</strong>, <strong>Interactive Date Night</strong>, and a <strong>meeting venue</strong> for groups of up to 15. More classes to be announced.</p>
+    </div>
+    <div class="fe-banner-cta">
+      <a href="/family-enrichment-athens-ga/" class="btn btn-gold">Explore Family Enrichment →</a>
+      <a href="tel:7062159661" class="btn btn-ghost-light">Call 706.215.9661</a>
     </div>
   </div>
 </section>

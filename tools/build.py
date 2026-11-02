@@ -156,6 +156,7 @@ def chrome_top(active=None):
       <a href="/#courses">Courses</a>
       <a href="/dui-school-athens-ga/"{cur("dui")}>DUI School</a>
       <a href="/schedule/"{cur("schedule")}>Schedule</a>
+      <a href="/family-enrichment-athens-ga/"{cur("family")}>Family Enrichment</a>
       <a href="/guides/"{cur("guides")}>Guides</a>
       <a href="/#faq">FAQ</a>
     </div>
@@ -346,7 +347,7 @@ def render_page(p, pages_by_slug):
               f'<span>Last reviewed <time datetime="{updated.isoformat()}">{updated_h}</time></span>'
               f'<span>{minutes} min read</span>')
 
-    active = "dui" if p["slug"] == "dui-school-athens-ga" else ("guides" if p["type"] != "service" else None)
+    active = "dui" if p["slug"] == "dui-school-athens-ga" else ("family" if p["slug"] == "family-enrichment-athens-ga" else ("guides" if p["type"] != "service" else None))
     return f'''{head(p["title"], p["description"], url, "article" if p["type"] != "service" else "website", schema)}
 <body>
 {chrome_top(active)}
