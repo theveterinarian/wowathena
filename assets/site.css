@@ -27,6 +27,8 @@ img { max-width: 100%; display: block; }
 /* top bar + nav */
 .topbar { background: var(--purple-dk); color: #fff; padding: .6rem 0; font-size: .86rem; font-weight: 600; text-align: center; letter-spacing: .02em; }
 .topbar strong { color: var(--gold); }
+.topbar a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.45); text-underline-offset: 3px; }
+.topbar a:hover { color: var(--gold); }
 .topbar .sep { margin: 0 .8rem; opacity: .5; }
 .nav { background: #fff; position: sticky; top: 0; z-index: 30; border-bottom: 3px solid var(--gold); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: .75rem 0; }
@@ -220,3 +222,15 @@ img { max-width: 100%; display: block; }
   .sched-row { grid-template-columns: 1fr; gap: .6rem; }
   .sched-act { flex-direction: row; align-items: center; justify-content: space-between; }
 }
+
+/* Family enrichment: upcoming class cards */
+.fe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.25rem 0 1.75rem; align-items: start; }
+.fe-card { background: var(--purple); color: #fff; border-radius: 12px; }
+.fe-card summary { list-style: none; cursor: pointer; padding: 1rem 1.1rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.fe-card summary::-webkit-details-marker { display: none; }
+.fe-card summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--gold); flex: none; }
+.fe-card[open] summary::after { content: "\2013"; }
+.fe-card .soon { display: inline-block; white-space: nowrap; background: var(--gold); color: var(--purple-dk); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: .22rem .55rem; border-radius: 999px; margin-left: auto; }
+.article-body .fe-card p { color: #fff; margin: 0; padding: 0 1.1rem 1.1rem; font-size: .96rem; }
+.article-body .fe-card p a { color: var(--gold); }
+.fe-card.tba { background: var(--verdigris); }

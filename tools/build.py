@@ -33,6 +33,8 @@ REGISTER = "https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122
 PHONE_DISPLAY = "706.215.9661"
 PHONE_TEL = "7062159661"
 CERT = "RRP Cert #10432"
+DI_CERT = "DI Cert #200024"
+STRIPE = "https://buy.stripe.com/7sYcN4dDJ4wIfmc4uR4Ja00"
 ORG_NAME = "Athena DUI Academy & Family Enrichment"
 
 REQUIRED = ["slug", "type", "title", "h1", "description", "dek", "category",
@@ -43,12 +45,12 @@ TYPES = {"service", "article", "pillar"}
 CTAS = {
     "dui": {
         "title": "Need Georgia DUI school?",
-        "text": f'Athena\'s DDS-certified Risk Reduction Program (<span class="cert">{CERT}</span>) is $360, taught live online or in person in Athens.',
+        "text": f'Athena\'s DDS-certified Risk Reduction Program (<span class="cert">{CERT}</span>) is $360, taught in person or live online in Athens.',
         "page": "/dui-school-athens-ga/",
     },
     "driver": {
         "title": "Need a Driver Improvement course?",
-        "text": "Athena teaches Georgia's state-approved 6-hour Driver Improvement course at our Athens office for $95, the DDS-set price. Call to find the next class.",
+        "text": f'Athena teaches Georgia\'s state-approved 6-hour Driver Improvement course (<span class="cert">{DI_CERT}</span>) at our Athens office for $95, the DDS-set price. Call to find the next class.',
         "page": "/driver-improvement-athens-ga/",
     },
     "clinical": {
@@ -58,12 +60,12 @@ CTAS = {
     },
     "anger": {
         "title": "Need anger management classes?",
-        "text": "Athena offers anger management classes for court, probation or personal goals, live online or in person in Athens.",
+        "text": "Athena offers anger management classes for court, probation or personal goals, in person in Athens or live online. The assessment is $125; call for class pricing.",
         "page": "/anger-management-athens-ga/",
     },
     "family": {
         "title": "Interested in family enrichment classes?",
-        "text": "Athena offers family enrichment classes for parents, couples and families, live online or in person in Athens. Call to find the right class.",
+        "text": "Family skills classes now, with Women's Gun Safety, an AHA CPR course, Interactive Date Night and a small meeting venue coming soon. Call for dates.",
         "page": "/family-enrichment-athens-ga/",
     },
 }
@@ -143,7 +145,7 @@ def inline_cta(kind, here):
 def chrome_top(active=None):
     cur = lambda name: ' aria-current="page"' if active == name else ""
     return f'''<div class="topbar">
-  Class Now, Pay Later with <strong>Stripe</strong> for qualifying students
+  <a href="{STRIPE}" target="_blank" rel="noopener">Class Now, Pay Later with <strong>Stripe</strong> for qualifying students</a>
   <span class="sep">|</span>
   Call <strong>{PHONE_DISPLAY}</strong> for more info
 </div>
@@ -180,7 +182,7 @@ def chrome_bottom():
   <div class="wrap cols">
     <div>
       <a href="/" class="brand-foot" aria-label="{esc(ORG_NAME)} home"><img src="/img/logo.png" alt="{esc(ORG_NAME)}" loading="lazy"></a>
-      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">{CERT}</span>) and Driver Improvement, plus clinical evaluations, anger management and family enrichment classes.</p>
+      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">{CERT}</span>) and Driver Improvement (<span class="cert">{DI_CERT}</span>), plus clinical evaluations, anger management and family enrichment classes.</p>
     </div>
     <div>
       <h4>Programs</h4>
@@ -206,8 +208,8 @@ def chrome_bottom():
       <h4>Contact</h4>
       <ul>
         <li><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
-        <li><a href="mailto:registration@wowathena.com">registration@wowathena.com</a></li>
-        <li>Mon–Fri · 10am – 6pm</li>
+        <li><a href="mailto:Director@wow-athena.com">Director@wow-athena.com</a></li>
+        <li>Mon–Fri · 10am – 5pm</li>
         <li>110 Athens West Pkwy, Ste.C<br>Athens, GA 30606</li>
       </ul>
     </div>
@@ -473,7 +475,7 @@ def render_schedule():
   </section>
   <section class="sched-program" id="prog-family">
     <h2>Family Enrichment classes</h2>
-    <p class="sched-lead">Communication, parenting and relationship skills classes for personal growth or when a court or agency asks for a family class. Live online or in person. <a href="/family-enrichment-athens-ga/">About the classes</a>.</p>
+    <p class="sched-lead">Communication, parenting and relationship skills classes for personal growth or when a court or agency asks for a family class. In person or live online. <a href="/family-enrichment-athens-ga/">About the classes</a>.</p>
     <div class="sched-rows" data-program="family"></div>
   </section>
   <section class="sched-program" id="prog-other" hidden>

@@ -30,7 +30,7 @@
   "logo": "https://wow-athena.com/img/logo.png",
   "image": "https://wow-athena.com/img/logo.png",
   "telephone": "+1-706-215-9661",
-  "email": "registration@wowathena.com",
+  "email": "Director@wow-athena.com",
   "slogan": "We Help You Become a Warrior of Wisdom (W.O.W.)",
   "address": {
     "@type": "PostalAddress",
@@ -61,7 +61,7 @@
         "provider": { "@id": "https://wow-athena.com/#organization" } } },
     { "@type": "Offer", "price": "150", "priceCurrency": "USD",
       "itemOffered": { "@type": "Service", "name": "Clinical Evaluation", "url": "https://wow-athena.com/clinical-evaluation-athens-ga/" } },
-    { "@type": "Offer",
+    { "@type": "Offer", "price": "125", "priceCurrency": "USD",
       "itemOffered": { "@type": "Course", "name": "Anger Management", "url": "https://wow-athena.com/anger-management-athens-ga/",
         "provider": { "@id": "https://wow-athena.com/#organization" } } },
     { "@type": "Offer",
@@ -106,6 +106,8 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 /* Top stripe bar — like the wowathena.com top */
 .topbar { background: var(--purple); color: #fff; padding: .65rem 0; font-size: .88rem; font-weight: 600; text-align: center; letter-spacing: .03em; }
 .topbar strong { color: var(--gold); }
+.topbar a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.45); text-underline-offset: 3px; }
+.topbar a:hover { color: var(--gold); }
 .topbar .sep { margin: 0 .8rem; opacity: .5; }
 
 /* Nav */
@@ -389,7 +391,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
 <body>
 
 <div class="topbar">
-  Class Now, Pay Later with <strong>Stripe</strong> for qualifying students
+  <a href="https://buy.stripe.com/7sYcN4dDJ4wIfmc4uR4Ja00" target="_blank" rel="noopener">Class Now, Pay Later with <strong>Stripe</strong> for qualifying students</a>
   <span class="sep">|</span>
   Call <strong>706.215.9661</strong> for more info
 </div>
@@ -423,7 +425,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
         We Help You Become a <span class="wow">Warrior of Wisdom</span>
         <span class="wow-tag">(W.O.W.)</span>
       </h1>
-      <p class="lede"><strong>Georgia State-approved DUI Risk Reduction Program</strong> · 20-hour intervention course · Driver Improvement, clinical evaluations &amp; anger management · virtual &amp; in-person options available.</p>
+      <p class="lede"><strong>Georgia State-approved DUI Risk Reduction Program</strong> · 20-hour intervention course · Driver Improvement, clinical evaluations &amp; anger management · in-person &amp; virtual options available.</p>
       <div class="hero-ctas">
         <a href="#courses" class="btn btn-gold">Find Your Class →</a>
         <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
@@ -432,7 +434,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
         <span>Register online or by phone</span>
         <span>Pay later for qualifying students</span>
         <span>Virtual &amp; in-person</span>
-        <span>Mon–Fri · 10am–6pm</span>
+        <span>Mon–Fri · 10am–5pm</span>
       </div>
     </div>
     <div class="hero-image">
@@ -461,7 +463,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <div class="trust-item"><span class="ico">📜</span>Court Accepted</div>
     <div class="trust-item"><span class="ico">💻</span>Virtual &amp; In-Person</div>
     <div class="trust-item"><span class="ico">💳</span>Pay Later · Qualifying Students</div>
-    <div class="trust-item"><span class="ico">⭐</span>4.9 · 1,200+ Reviews</div>
+    <div class="trust-item"><span class="ico">⭐</span>Judgment-Free, Student-First</div>
   </div>
 </section>
 
@@ -483,7 +485,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <div class="head">
       <span class="eyebrow">Our Programs</span>
       <h2>Courses &amp; services <em>we offer.</em></h2>
-      <p>Our DUI Risk Reduction Program and Driver Improvement course are Georgia State-approved (<span class="cert">RRP Cert #10432</span>). Find your court-ordered course, then call now or click to register for our next class.</p>
+      <p>Our DUI Risk Reduction Program and Driver Improvement course are Georgia State-approved (<span class="cert">RRP Cert #10432</span> · <span class="cert">DI Cert #200024</span>). Find your court-ordered course, then call now or click to register for our next class.</p>
     </div>
     <div class="course-grid">
       <div class="course">
@@ -495,7 +497,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
         <div class="meta"><span class="price">$360<small>/full</small></span><span class="actions"><a href="/dui-school-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
       </div>
       <div class="course">
-        <span class="course-badge">State-approved</span>
+        <span class="course-badge">State-approved · DI Cert #200024</span>
         <div class="course-icon">🛣️</div>
         <h3>Driver Improvement</h3>
         <div class="duration">6-hour defensive driving</div>
@@ -513,15 +515,15 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
         <div class="course-icon">🧘</div>
         <h3>Anger Management</h3>
         <div class="duration">Court-ordered or personal</div>
-        <p>Practical skills for handling anger, stress and conflict, for court, probation or personal goals. Check your order for the number of hours required, and call us to confirm the right class. Live virtual or in person.</p>
-        <div class="meta"><span class="price"><small class="call">Call for pricing</small></span><span class="actions"><a href="/anger-management-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
+        <p>Practical skills for handling anger, stress and conflict, for court, probation or personal goals. Check your order for the number of hours required, and call us to confirm the right class. In person or live virtual.</p>
+        <div class="meta"><span class="price">$125<small>/assessment</small></span><span class="actions"><a href="/anger-management-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
       </div>
       <div class="course">
         <div class="course-icon">👪</div>
         <h3>Family Enrichment</h3>
-        <div class="duration">Parents, couples &amp; families</div>
-        <p>Classes that build stronger families: communication, parenting skills, conflict resolution and healthy relationships. For personal growth, or when a court, probation officer or agency asks for a family-focused class. Live virtual or in person in Athens.</p>
-        <div class="meta"><span class="price"><small class="call">Call for pricing</small></span><span class="actions"><a href="/family-enrichment-athens-ga/" class="details">Details</a><a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="enroll">Register →</a></span></div>
+        <div class="duration">Parents, couples, families &amp; community</div>
+        <p>Communication, parenting and relationship classes, plus new classes coming soon: Women's Gun Safety, an AHA CPR course, Interactive Date Night, and a meeting venue for groups of up to 15. In person or live virtual in Athens.</p>
+        <div class="meta"><span class="price"><small class="call">Prices coming soon</small></span><span class="actions"><a href="/family-enrichment-athens-ga/" class="details">Details</a><a href="/family-enrichment-athens-ga/#upcoming-classes" class="enroll">See what's coming →</a></span></div>
       </div>
     </div>
   </div>
@@ -548,22 +550,22 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       <div class="why-card">
         <div class="why-icon">💳</div>
         <h3>Class Now, Pay Later</h3>
-        <p>Qualifying students can take class now and pay later through Stripe. Ask us when you register.</p>
+        <p>Qualifying students can take class now and <a href="https://buy.stripe.com/7sYcN4dDJ4wIfmc4uR4Ja00" target="_blank" rel="noopener">pay later through Stripe</a>. Ask us when you register.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">💻</div>
-        <h3>Virtual or in-person</h3>
+        <h3>In-person or virtual</h3>
         <p>Choose what works for your schedule — live virtual classes, or in person at our Athens office.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">🏛️</div>
         <h3>Georgia State approved</h3>
-        <p>Our DUI Risk Reduction Program is approved by the Georgia DDS — <span class="cert">RRP Cert #10432</span>. Our Driver Improvement course is state-approved as well.</p>
+        <p>Our DUI Risk Reduction Program is approved by the Georgia DDS — <span class="cert">RRP Cert #10432</span>. Our Driver Improvement course is state-approved as well (<span class="cert">DI Cert #200024</span>).</p>
       </div>
       <div class="why-card">
         <div class="why-icon">❤️</div>
         <h3>Real human support</h3>
-        <p>We are available in person or by phone! Reach a real person Monday through Friday, 10am–6pm, with questions about your specific court order.</p>
+        <p>We are available in person or by phone! Reach a real person Monday through Friday, 10am–5pm, with questions about your specific court order.</p>
       </div>
     </div>
   </div>
@@ -590,7 +592,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       <div class="step">
         <div class="step-num">3</div>
         <h3>Attend your class</h3>
-        <p>Join our next scheduled class — live online or in person at our Athens office.</p>
+        <p>Join our next scheduled class — in person at our Athens office or live online.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
@@ -610,21 +612,21 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <div class="testi-grid">
       <div class="testi">
         <div class="stars">★★★★★</div>
-        <p>"I was dreading my DUI class — but Athena made it feel like learning, not punishment. The instructors actually cared. I finished a week early."</p>
+        <p>"I was dreading my DUI class, but Athena made it feel like learning, not punishment. The instructors actually cared and answered every question I had."</p>
         <p class="author">Marcus T.</p>
         <p class="role">DUI / RRP · Athens</p>
       </div>
       <div class="testi">
         <div class="stars">★★★★★</div>
-        <p>"They walked me through everything when I had no idea what my court order meant. Submitted my certificate the day I finished. Lifesavers."</p>
+        <p>"They walked me through everything when I had no idea what my court order meant, and they sent my certificate to the court once I completed the program."</p>
         <p class="author">Elena R.</p>
         <p class="role">Anger Management · Athens</p>
       </div>
       <div class="testi">
         <div class="stars">★★★★★</div>
-        <p>"Stripe pay-later, virtual evenings — everything worked around my job. I'd absolutely recommend Athena to anyone going through this."</p>
+        <p>"Pay-later through Stripe and evening classes meant I could keep working. I would recommend Athena to anyone going through this."</p>
         <p class="author">Diego V.</p>
-        <p class="role">DUI Level II · Watkinsville</p>
+        <p class="role">DUI / RRP · Watkinsville</p>
       </div>
     </div>
   </div>
@@ -639,7 +641,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <div class="faq-list">
       <details class="faq-item">
         <summary>Is Athena state-approved?</summary>
-        <p>Yes. Our DUI Alcohol or Drug Use Risk Reduction Program is certified by the Georgia Department of Driver Services under RRP Cert #10432, and our Driver Improvement course is state-approved as well. Our anger management classes and clinical evaluations are separate services — check your court order for exactly what you need, or call us and we&#x27;ll help you read it.</p>
+        <p>Yes. Our DUI Alcohol or Drug Use Risk Reduction Program is certified by the Georgia Department of Driver Services under RRP Cert #10432, and our Driver Improvement course is state-approved as well (DI Cert #200024). Our anger management classes and clinical evaluations are separate services — check your court order for exactly what you need, or call us and we&#x27;ll help you understand it.</p>
       </details>
       <details class="faq-item">
         <summary>Will DDS accept my DUI school certificate?</summary>
@@ -647,7 +649,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       </details>
       <details class="faq-item">
         <summary>How long does the DUI Risk Reduction Program take?</summary>
-        <p>The program has two parts: an assessment and a 20-hour course taught over several sessions. Most students finish within about a week. Classes run on a set schedule, live online or in person — register online or call to see our next class dates.</p>
+        <p>The program has two parts: an assessment and a 20-hour course taught over several sessions. Most students finish within about a week. Classes run on a set schedule, in person or live online — register online or call to see our next class dates.</p>
       </details>
       <details class="faq-item">
         <summary>Can I start class the same day I register?</summary>
@@ -655,7 +657,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       </details>
       <details class="faq-item">
         <summary>Can I take classes online?</summary>
-        <p>Many of our classes are offered live online or in person at our Athens office. Online classes are taught live by an instructor — Georgia DDS does not accept certificates from self-paced online DUI courses. Some steps may need to be completed in person, so call us and we&#x27;ll tell you exactly what applies to you.</p>
+        <p>Many of our classes are offered in person at our Athens office or live online. Online classes are taught live by an instructor — Georgia DDS does not accept certificates from self-paced online DUI courses. Some steps may need to be completed in person, so call us and we&#x27;ll tell you exactly what applies to you.</p>
       </details>
       <details class="faq-item">
         <summary>Do I need a clinical evaluation?</summary>
@@ -667,7 +669,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       </details>
       <details class="faq-item">
         <summary>How does Class Now, Pay Later work?</summary>
-        <p>Qualifying students can take class now and pay later through Stripe. Ask about it when you register or call us at 706.215.9661.</p>
+        <p>Qualifying students can take class now and pay later through Stripe. Use the <a href="https://buy.stripe.com/7sYcN4dDJ4wIfmc4uR4Ja00" target="_blank" rel="noopener">Class Now, Pay Later link</a>, or ask about it when you register or call us at 706.215.9661.</p>
       </details>
       <details class="faq-item">
         <summary>Do you send my certificate to the court?</summary>
@@ -675,7 +677,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       </details>
       <details class="faq-item">
         <summary>What are your office hours?</summary>
-        <p>Our office at 110 Athens West Parkway, Ste. C, Athens, GA 30606 is open Monday through Friday, 10am–6pm. We&#x27;re available in person or by phone at 706.215.9661, or email registration@wowathena.com.</p>
+        <p>Our office at 110 Athens West Parkway, Ste. C, Athens, GA 30606 is open Monday through Friday, 10am–5pm. We&#x27;re available in person or by phone at 706.215.9661.</p>
       </details>
     </div>
     <p style="text-align:center;margin-top:2rem;">More answers in our <a href="/guides/" style="color:var(--purple);font-weight:700;">Georgia DUI &amp; court-class guides →</a></p>
@@ -690,7 +692,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       "name": "Is Athena state-approved?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Our DUI Alcohol or Drug Use Risk Reduction Program is certified by the Georgia Department of Driver Services under RRP Cert #10432, and our Driver Improvement course is state-approved as well. Our anger management classes and clinical evaluations are separate services — check your court order for exactly what you need, or call us and we'll help you read it."
+        "text": "Yes. Our DUI Alcohol or Drug Use Risk Reduction Program is certified by the Georgia Department of Driver Services under RRP Cert #10432, and our Driver Improvement course is state-approved as well (DI Cert #200024). Our anger management classes and clinical evaluations are separate services — check your court order for exactly what you need, or call us and we'll help you understand it."
       }
     },
     {
@@ -706,7 +708,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       "name": "How long does the DUI Risk Reduction Program take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The program has two parts: an assessment and a 20-hour course taught over several sessions. Most students finish within about a week. Classes run on a set schedule, live online or in person — register online or call to see our next class dates."
+        "text": "The program has two parts: an assessment and a 20-hour course taught over several sessions. Most students finish within about a week. Classes run on a set schedule, in person or live online — register online or call to see our next class dates."
       }
     },
     {
@@ -722,7 +724,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       "name": "Can I take classes online?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Many of our classes are offered live online or in person at our Athens office. Online classes are taught live by an instructor — Georgia DDS does not accept certificates from self-paced online DUI courses. Some steps may need to be completed in person, so call us and we'll tell you exactly what applies to you."
+        "text": "Many of our classes are offered in person at our Athens office or live online. Online classes are taught live by an instructor — Georgia DDS does not accept certificates from self-paced online DUI courses. Some steps may need to be completed in person, so call us and we'll tell you exactly what applies to you."
       }
     },
     {
@@ -762,7 +764,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       "name": "What are your office hours?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our office at 110 Athens West Parkway, Ste. C, Athens, GA 30606 is open Monday through Friday, 10am–6pm. We're available in person or by phone at 706.215.9661, or email registration@wowathena.com."
+        "text": "Our office at 110 Athens West Parkway, Ste. C, Athens, GA 30606 is open Monday through Friday, 10am–5pm. We're available in person or by phone at 706.215.9661."
       }
     }
   ]
@@ -778,9 +780,9 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
     <a href="tel:7062159661" class="phone-big">📞 706.215.9661</a>
     <a href="https://garrp2.adeincorp.com/location/0x61b1374ea5da933164af8269b122cdd4/" target="_blank" rel="noopener" class="btn btn-gold">Register for Our Next Class →</a>
     <div class="cta-final-info">
-      <div><div class="label">Office Hours</div><div class="val">Mon–Fri · 10am – 6pm</div></div>
+      <div><div class="label">Office Hours</div><div class="val">Mon–Fri · 10am – 5pm</div></div>
       <div><div class="label">State Certification</div><div class="val">RRP Cert #10432</div></div>
-      <div><div class="label">Email</div><div class="val">registration@wowathena.com</div></div>
+      <div><div class="label">Email</div><div class="val">Director@wow-athena.com</div></div>
       <div><div class="label">Address</div><div class="val">110 Athens West Parkway, Ste.C<br>Athens, GA 30606</div></div>
     </div>
   </div>
@@ -790,7 +792,7 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
   <div class="wrap">
     <div>
       <a href="/" class="brand-foot" aria-label="Athena DUI Academy &amp; Family Enrichment home"><img src="/img/logo.png" alt="Athena DUI Academy &amp; Family Enrichment" loading="lazy"></a>
-      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">RRP Cert #10432</span>) and Driver Improvement, plus clinical evaluations and anger management. Serving Northeast Georgia since 2018.</p>
+      <p>Georgia DDS-approved DUI Risk Reduction Program (<span class="cert">RRP Cert #10432</span>) and Driver Improvement (<span class="cert">DI Cert #200024</span>), plus clinical evaluations and anger management. Serving Northeast Georgia since 2018.</p>
     </div>
     <div>
       <h4>Programs</h4>
@@ -816,8 +818,8 @@ em { font-style: normal; background: linear-gradient(180deg, transparent 60%, va
       <h4>Contact</h4>
       <ul>
         <li><a href="tel:7062159661">706.215.9661</a></li>
-        <li><a href="mailto:registration@wowathena.com">registration@wowathena.com</a></li>
-        <li>Mon–Fri · 10am – 6pm</li>
+        <li><a href="mailto:Director@wow-athena.com">Director@wow-athena.com</a></li>
+        <li>Mon–Fri · 10am – 5pm</li>
         <li>110 Athens West Pkwy, Ste.C<br>Athens, GA 30606</li>
       </ul>
     </div>

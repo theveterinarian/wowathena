@@ -1,10 +1,22 @@
 Program,Start date,End date,Days,Time,Format,Instructor,Status,Notes
-DUI Risk Reduction (RRP),10/2/2026,10/4/2026,Fri-Sun (Weekend),6:00 pm Fri,In person,Mike Oakes,Open,
-DUI Risk Reduction (RRP),10/5/2026,10/9/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person,Jimmy Wood,Open,
-DUI Risk Reduction (RRP),10/10/2026,10/12/2026,Sat-Mon (Weekend),9:00 am,In person,Mike Oakes,Open,
-DUI Risk Reduction (RRP),10/16/2026,10/18/2026,Fri-Sun (Weekend),9:00 am,In person,,Pending,Starts on Friday
+DUI Risk Reduction (RRP),10/2/2026,10/4/2026,Fri-Sun (Weekend),6:00 pm Fri,In person / Virtual,Mike Oakes,Open,Starts on Friday
+DUI Risk Reduction (RRP),10/5/2026,10/9/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),10/10/2026,10/12/2026,Sat-Mon (Weekend),9:00 am,In person / Virtual,Mike Oakes,Open,
+DUI Risk Reduction (RRP),10/16/2026,10/18/2026,Fri-Sun (Weekend),9:00 am,In person / Virtual,,Pending,Starts on Friday
+DUI Risk Reduction (RRP),10/19/2026,10/23/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),10/24/2026,10/26/2026,Sat-Mon (Weekend),9:00 am,In person / Virtual,,Pending,
+DUI Risk Reduction (RRP),10/26/2026,10/30/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),11/6/2026,11/8/2026,Fri-Sun (Weekend),6:00 pm Fri,In person / Virtual,Mike Oakes,Open,Starts on Friday
+DUI Risk Reduction (RRP),11/9/2026,11/13/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),11/14/2026,11/16/2026,Sat-Mon (Weekend),9:00 am,In person / Virtual,Mike Oakes,Open,
+DUI Risk Reduction (RRP),11/20/2026,11/22/2026,Fri-Sun (Weekend),6:00 pm Fri,In person / Virtual,,Pending,Starts on Friday
+DUI Risk Reduction (RRP),11/30/2026,12/4/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),12/7/2026,12/11/2026,Mon-Fri (Weeknight),6:00 pm - 9:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),12/12/2026,12/14/2026,Sat-Mon (Weekend),9:00 am,In person / Virtual,,Pending,
+DUI Risk Reduction (RRP),12/14/2026,12/18/2026,Mon-Fri (Weeknight),6:00 pm - 10:00 pm,In person / Virtual,Jimmy Wood,Open,
+DUI Risk Reduction (RRP),12/19/2026,12/21/2026,Sat-Mon (Weekend),9:00 am,In person / Virtual,,Pending,
 Driver Improvement,10/3/2026,10/3/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
-Driver Improvement,10/10/2026,10/10/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
+Driver Improvement,10/10/2026,10/10/2026,Saturday,10:00 am - 5:00 pm,In person,,Cancelled,Call to register
 Driver Improvement,10/13/2026,10/14/2026,Tue & Wed,6:00 pm - 9:00 pm,In person,,Open,Call to register
 Driver Improvement,10/17/2026,10/17/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
 Driver Improvement,10/20/2026,10/22/2026,Tue - Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
@@ -13,3 +25,14 @@ Driver Improvement,10/27/2026,10/29/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,
 Driver Improvement,11/3/2026,11/5/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
 Driver Improvement,11/7/2026,11/7/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
 Driver Improvement,11/10/2026,11/12/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
+Driver Improvement,11/17/2026,11/19/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
+Driver Improvement,11/21/2026,11/21/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
+Driver Improvement,11/23/2026,11/25/2026,Mon & Wed,6:00 pm - 10:00 pm,In person,,Open,Call to register
+Driver Improvement,12/1/2026,12/3/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
+Driver Improvement,12/5/2026,12/5/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
+Driver Improvement,12/8/2026,12/10/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
+Driver Improvement,12/12/2026,12/12/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
+Driver Improvement,12/15/2026,12/17/2026,Tue & Thu,6:00 pm - 9:00 pm,In person,,Open,Call to register
+Driver Improvement,12/19/2026,12/19/2026,Saturday,10:00 am - 5:00 pm,In person,,Open,Call to register
+Driver Improvement,12/21/2026,12/23/2026,Mon & Wed,6:00 pm - 9:00 pm,In person,,Open,Call to register
+Driver Improvement,12/28/2026,12/30/2026,Mon - Wed,6:00 pm - 9:00 pm,In person,,Open,Call to register
